@@ -3,8 +3,8 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useLocation } from "react-router-dom";
-import ufrLogo from "@/assets/ufr-logo.png";
-import universityLogo from "@/assets/university-logo.png";
+import ufrLogo from "@/assets/ufr-logo-new.png";
+import universityLogo from "@/assets/university-logo-new.png";
 
 const navigation = [
   {
@@ -42,6 +42,10 @@ const navigation = [
     ]
   },
   {
+    name: "FAQ",
+    href: "/faq"
+  },
+  {
     name: "Contact",
     href: "/contact"
   }
@@ -66,7 +70,7 @@ export default function Header() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4 zoom-in">
-              <img src={universityLogo} alt="Logo Université Félix Houphouët-Boigny" className="h-16 w-auto hover-scale pulse-glow" />
+              <img src={ufrLogo} alt="Logo UFR-LLC" className="h-16 w-auto hover-scale pulse-glow" />
             </div>
             
             <div className="text-center flex-1 px-4 slide-in-up">
@@ -79,7 +83,7 @@ export default function Header() {
             </div>
             
             <div className="flex items-center space-x-4 rotate-in">
-              <img src={ufrLogo} alt="Logo UFR-LLC" className="h-16 w-auto hover-scale pulse-glow" />
+              <img src={universityLogo} alt="Logo Université Félix Houphouët-Boigny" className="h-16 w-auto hover-scale pulse-glow" />
             </div>
           </div>
         </div>

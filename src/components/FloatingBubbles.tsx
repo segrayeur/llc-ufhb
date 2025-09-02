@@ -8,7 +8,7 @@ const FloatingBubbles = () => {
   const [showChat, setShowChat] = useState(false);
 
   const handleWhatsAppClick = () => {
-    const message = "BONJOUR, BIENVENUE À L'UFR-LLC, COMMENT POUVONS-NOUS VOUS AIDER?";
+    const message = "BONJOUR ,BIENVENUE A L'UFR - LLC, COMMENT POUVONS-NOUS VOUS AIDER?";
     const whatsappUrl = `https://wa.me/2250506854764?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
