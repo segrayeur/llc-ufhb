@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingBubbles from "@/components/FloatingBubbles";
 import Index from "./pages/Index";
 import Mission from "./pages/Mission";
 import Equipe from "./pages/Equipe";
@@ -32,9 +33,13 @@ const App = () => (
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/presentation" element={<Mission />} />
               <Route path="/mission" element={<Mission />} />
               <Route path="/equipe" element={<Equipe />} />
               <Route path="/historique" element={<Historique />} />
+              <Route path="/galerie" element={<Actualites />} />
+              <Route path="/galerie/photos" element={<Actualites />} />
+              <Route path="/galerie/videos" element={<Actualites />} />
               <Route path="/departements" element={<Departements />} />
               <Route path="/projets" element={<Projets />} />
               <Route path="/structures" element={<Structures />} />
@@ -47,6 +52,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <FloatingBubbles />
         </div>
       </BrowserRouter>
     </TooltipProvider>

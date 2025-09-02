@@ -2,144 +2,184 @@
 @tailwind components;
 @tailwind utilities;
 
-/* UFR-LLC Design System - Institutional Academic Theme */
-
-@layer base {
-  :root {
-    /* Institutional Color Palette */
-    --background: 0 0% 100%;
-    --foreground: 120 100% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 120 100% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 120 100% 12%;
-
-    /* Primary: Dark Green (#006400) */
-    --primary: 120 100% 19.6%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary: Light Green (#3CB371) */
-    --secondary: 146 50% 48%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Accent: Gold (#FFD700) */
-    --accent: 51 100% 50%;
-    --accent-foreground: 120 100% 12%;
-
-    /* Academic Grays */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 120 30% 85%;
-    --input: 120 30% 92%;
-    --ring: 120 100% 19.6%;
-
-    --radius: 0.75rem;
-
-    /* Custom Academic Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(120 100% 19.6%), hsl(146 50% 48%));
-    --gradient-gold: linear-gradient(135deg, hsl(51 100% 50%), hsl(45 100% 55%));
-    --gradient-academic: linear-gradient(180deg, hsl(0 0% 100%), hsl(120 30% 97%));
-
-    /* Academic Shadows */
-    --shadow-academic: 0 4px 20px hsl(120 100% 19.6% / 0.1);
-    --shadow-gold: 0 8px 30px hsl(51 100% 50% / 0.2);
-
-    /* Typography Scale */
-    --font-heading: 'Georgia', 'Times New Roman', serif;
-    --font-body: 'Inter', 'Segoe UI', sans-serif;
-
-    /* Transitions */
-    --transition-academic: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* Sidebar (Academic theme) */
-    --sidebar-background: 120 100% 19.6%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 51 100% 50%;
-    --sidebar-primary-foreground: 120 100% 19.6%;
-    --sidebar-accent: 146 50% 48%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 120 50% 30%;
-    --sidebar-ring: 51 100% 50%;
-  }
-
-  .dark {
-    /* Dark mode maintains academic integrity */
-    --background: 120 20% 8%;
-    --foreground: 0 0% 95%;
-
-    --card: 120 20% 10%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 120 20% 10%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 146 50% 60%;
-    --primary-foreground: 120 100% 12%;
-
-    --secondary: 120 30% 15%;
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 120 20% 15%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 51 100% 55%;
-    --accent-foreground: 120 100% 12%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 95%;
-
-    --border: 120 30% 20%;
-    --input: 120 30% 18%;
-    --ring: 146 50% 60%;
-
-    --sidebar-background: 120 100% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 51 100% 50%;
-    --sidebar-primary-foreground: 120 100% 8%;
-    --sidebar-accent: 120 30% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 120 30% 18%;
-    --sidebar-ring: 51 100% 50%;
-  }
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 120 100% 15%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 120 61% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 40% 98%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 45 100% 55%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 120 100% 20%;
+  --radius: 0.5rem;
+  
+  /* Gradient variables */
+  --gradient-primary: linear-gradient(135deg, hsl(120 100% 15%), hsl(120 61% 50%));
+  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 45%));
+  --gradient-hero: linear-gradient(135deg, hsl(120 100% 15%) 0%, hsl(120 61% 50%) 50%, hsl(45 100% 55%) 100%);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 120 61% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 120 100% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 45 100% 55%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 120 61% 50%;
+  
+  /* Dark mode gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(120 61% 50%), hsl(120 100% 20%));
+  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 35%));
+  --gradient-hero: linear-gradient(135deg, hsl(222.2 84% 4.9%) 0%, hsl(120 100% 20%) 50%, hsl(45 100% 55%) 100%);
+}
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-body);
-    line-height: 1.6;
-  }
+/* Spectacular animations and effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    line-height: 1.2;
-    color: hsl(var(--primary));
-  }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--accent) / 0.6); }
+}
 
-  .academic-gradient {
-    background: var(--gradient-academic);
-  }
+@keyframes slide-in-up {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-  .gold-gradient {
-    background: var(--gradient-gold);
-  }
+@keyframes zoom-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
-  .academic-shadow {
-    box-shadow: var(--shadow-academic);
-  }
+@keyframes rotate-in {
+  from { transform: rotate(-10deg) scale(0.8); opacity: 0; }
+  to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
 
-  .transition-academic {
-    transition: var(--transition-academic);
-  }
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.hero-gradient {
+  background: var(--gradient-hero);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.slide-in-up {
+  animation: slide-in-up 0.8s ease-out;
+}
+
+.zoom-in {
+  animation: zoom-in 0.6s ease-out;
+}
+
+.rotate-in {
+  animation: rotate-in 0.8s ease-out;
+}
+
+.bounce-in {
+  animation: bounce-in 0.8s ease-out;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+}
+
+.academic-shadow {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.transition-academic {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Floating elements */
+.floating-element {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.floating-element:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Add fade-in animation for various elements */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
 }
