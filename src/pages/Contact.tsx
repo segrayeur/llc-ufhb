@@ -5,10 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Helmet } from "react-helmet";
-
 const Contact = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Contact | UFR-LLC - Université Félix Houphouët-Boigny</title>
         <meta name="description" content="Contactez l'UFR des Langues, Littératures et Civilisations. Adresse, téléphone, email et formulaire de contact. Université de Cocody, Abidjan." />
@@ -114,7 +112,7 @@ const Contact = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Samedi :</span>
-                      <span className="font-medium">08h00 - 12h00</span>
+                      <span className="font-medium">Fermé</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Dimanche :</span>
@@ -163,12 +161,7 @@ const Contact = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="message">Message *</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Décrivez votre demande..."
-                      className="min-h-[120px]"
-                      required 
-                    />
+                    <Textarea id="message" placeholder="Décrivez votre demande..." className="min-h-[120px]" required />
                   </div>
                   
                   <Button type="submit" className="w-full">
@@ -223,8 +216,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Contact;
