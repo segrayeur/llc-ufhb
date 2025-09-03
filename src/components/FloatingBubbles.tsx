@@ -225,4 +225,4 @@ const FloatingBubbles = () => {
   );
 };
 
-export default FloatingBubbles;
+export { FloatingBubbles };

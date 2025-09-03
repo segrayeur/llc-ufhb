@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import FloatingBubbles from "@/components/FloatingBubbles";
+import { FloatingBubbles } from "@/components/FloatingBubbles";
 import Index from "./pages/Index";
 import Mission from "./pages/Mission";
 import Equipe from "./pages/Equipe";

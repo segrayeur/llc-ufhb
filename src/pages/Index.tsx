@@ -9,7 +9,7 @@ import temoignageJean from "@/assets/temoignage-jean.jpg";
 import temoignageAminata from "@/assets/temoignage-aminata.jpg";
 import universityLogo from "@/assets/university-logo-new.png";
 import ufrLogo from "@/assets/ufr-logo-new.png";
-import FloatingBubbles from "@/components/FloatingBubbles";
+import { FloatingBubbles } from "@/components/FloatingBubbles";
 
 const Index = () => {
   const navigate = useNavigate();
