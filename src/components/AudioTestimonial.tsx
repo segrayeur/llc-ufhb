@@ -24,25 +24,38 @@ export function AudioTestimonial({ text, voice = "Sarah", className = "" }: Audi
 
     setIsLoading(true);
     try {
+      console.log('Generating audio for text:', text?.substring(0, 50));
+      
       const { data, error } = await supabase.functions.invoke('text-to-speech', {
-        body: { text, voice }
+        body: { text, voice: voice || 'Sarah' }
       });
 
-      if (error) throw error;
+      console.log('Audio generation response:', { data, error });
 
-      if (data.audioContent) {
-        const audioBlob = new Blob(
-          [Uint8Array.from(atob(data.audioContent), c => c.charCodeAt(0))],
-          { type: 'audio/mpeg' }
-        );
-        const url = URL.createObjectURL(audioBlob);
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      if (data?.success && data?.audioContent) {
+        // Convert base64 to blob
+        const binaryString = atob(data.audioContent);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        const blob = new Blob([bytes], { type: 'audio/mpeg' });
+        const url = URL.createObjectURL(blob);
         setAudioUrl(url);
+        console.log('Audio URL created successfully');
+      } else {
+        throw new Error(data?.error || 'Aucun contenu audio reçu');
       }
     } catch (error) {
-      console.error('Error generating audio:', error);
+      console.error('Erreur lors de la génération audio:', error);
       toast({
         title: "Erreur",
-        description: "Impossible de générer l'audio pour ce témoignage.",
+        description: "Impossible de générer l'audio. Vérifiez votre connexion.",
         variant: "destructive",
       });
     } finally {

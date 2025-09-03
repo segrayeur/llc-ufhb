@@ -38,6 +38,51 @@ export type Database = {
         }
         Relationships: []
       }
+      inscriptions: {
+        Row: {
+          created_at: string
+          date_naissance: string | null
+          email: string
+          filiere_souhaitee: string | null
+          id: string
+          message: string | null
+          niveau_etude: string | null
+          nom: string
+          prenom: string
+          status: string | null
+          telephone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          date_naissance?: string | null
+          email: string
+          filiere_souhaitee?: string | null
+          id?: string
+          message?: string | null
+          niveau_etude?: string | null
+          nom: string
+          prenom: string
+          status?: string | null
+          telephone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          date_naissance?: string | null
+          email?: string
+          filiere_souhaitee?: string | null
+          id?: string
+          message?: string | null
+          niveau_etude?: string | null
+          nom?: string
+          prenom?: string
+          status?: string | null
+          telephone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       ufr_knowledge: {
         Row: {
           category: string
