@@ -16,6 +16,7 @@ const FloatingBubbles = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
   const handleWhatsAppClick = () => {
     const message = "BONJOUR ,BIENVENUE A L'UFR - LLC, COMMENT POUVONS-NOUS VOUS AIDER?";
@@ -43,10 +44,15 @@ const FloatingBubbles = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('ufr-chat', {
-        body: { message: userMessage }
+        body: { message: userMessage, sessionId }
       });
 
       if (error) throw error;
+
+      // Update session ID from response
+      if (data.sessionId && !sessionId) {
+        setSessionId(data.sessionId);
+      }
 
       // Add bot response to chat
       setMessages(prev => [...prev, { 

@@ -14,7 +14,10 @@ serve(async (req) => {
   }
 
   try {
-    const { message } = await req.json();
+    const { message, sessionId } = await req.json();
+    
+    // Generate session ID if not provided
+    const chatSessionId = sessionId || `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     // Initialize Supabase client
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
@@ -59,15 +62,16 @@ Voici les informations générales que je peux vous fournir:
 Pour des questions spécifiques, n'hésitez pas à nous contacter directement.`;
     }
 
-    // Save conversation to database
+    // Save conversation to database with session ID
     await supabase
       .from('chat_conversations')
       .insert({
         user_message: message,
-        bot_response: response
+        bot_response: response,
+        session_id: chatSessionId
       });
 
-    return new Response(JSON.stringify({ response }), {
+    return new Response(JSON.stringify({ response, sessionId: chatSessionId }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
