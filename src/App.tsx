@@ -1,7 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -21,43 +20,42 @@ import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/presentation" element={<Mission />} />
-              <Route path="/mission" element={<Mission />} />
-              <Route path="/equipe" element={<Equipe />} />
-              <Route path="/historique" element={<Historique />} />
-              <Route path="/galerie" element={<Galerie />} />
-              <Route path="/galerie/photos" element={<Galerie />} />
-              <Route path="/galerie/videos" element={<Galerie />} />
-              <Route path="/departements" element={<Departements />} />
-              <Route path="/projets" element={<Projets />} />
-              <Route path="/structures" element={<Structures />} />
-              <Route path="/partenaires" element={<Partenaires />} />
-              <Route path="/actualites" element={<Actualites />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/mentions-legales" element={<MentionsLegales />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-          <FloatingBubbles />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/presentation" element={<Mission />} />
+            <Route path="/mission" element={<Mission />} />
+            <Route path="/equipe" element={<Equipe />} />
+            <Route path="/historique" element={<Historique />} />
+            <Route path="/galerie" element={<Galerie />} />
+            <Route path="/galerie/photos" element={<Galerie />} />
+            <Route path="/galerie/videos" element={<Galerie />} />
+            <Route path="/departements" element={<Departements />} />
+            <Route path="/projets" element={<Projets />} />
+            <Route path="/structures" element={<Structures />} />
+            <Route path="/partenaires" element={<Partenaires />} />
+            <Route path="/actualites" element={<Actualites />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingBubbles />
+      </div>
+    </BrowserRouter>
+  </TooltipProvider>
 );
+
 
 export default App;
