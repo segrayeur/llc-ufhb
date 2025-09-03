@@ -57,7 +57,7 @@ export default function Footer() {
                 <Phone className="h-4 w-4 text-accent" />
                 <div className="text-primary-foreground/80">
                   <div>+225 0141037291</div>
-                  <div>+225 0141035350
+                  <div>+225 0141035350 
 +225 0143977166</div>
                   <div>WhatsApp: +225 0506854764</div>
                 </div>
