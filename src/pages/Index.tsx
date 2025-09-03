@@ -22,230 +22,300 @@ const Index = () => {
         <meta name="keywords" content="UFR-LLC, accueil, université, langues, littératures, civilisations, Abidjan, formation" />
       </Helmet>
 
-      {/* Hero Section Spectaculaire */}
-      <section className="relative min-h-screen flex items-center justify-center mega-institutional overflow-hidden">
+      {/* Hero Section Ultra Imposant */}
+      <section className="relative h-screen flex items-center justify-center mega-institutional overflow-hidden">
         <FloatingBubbles />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/30"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Logo Central Géant */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <div className="relative mega-float">
+            <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full prestigious-card flex items-center justify-center institutional-shadow">
+              <div className="text-center text-white">
+                <div className="text-9xl lg:text-[12rem] mb-8 filter drop-shadow-lg">🏛️</div>
+                <h3 className="text-2xl lg:text-4xl font-bold gradient-text">UFR-LLC</h3>
+                <div className="h-2 w-32 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mt-4"></div>
+              </div>
+            </div>
+            <div className="absolute -inset-12 bg-gradient-glow rounded-full opacity-40 blur-2xl"></div>
+          </div>
+        </div>
+
+        {/* Titre Principal Imposant */}
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-center z-30">
+          <h1 className="text-4xl lg:text-8xl font-black text-white mb-4 zoom-in tracking-tight gradient-text">
+            EXCELLENCE ACADÉMIQUE
+          </h1>
+          <p className="text-xl lg:text-3xl text-white/95 font-semibold">
+            Université Félix Houphouët-Boigny
+          </p>
+        </div>
+
+        {/* Description Monumentale */}
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center z-30 max-w-5xl px-4">
+          <p className="text-lg lg:text-2xl text-white/90 mb-8 leading-relaxed prestigious-card p-8 rounded-3xl backdrop-blur-sm institutional-shadow">
+            🌟 L'Unité de Formation et de Recherche en Langues, Littératures et Civilisations - 
+            Temple du savoir et forge de l'élite intellectuelle depuis 1964
+          </p>
+        </div>
+
+        {/* Navigation Flottante Latérale */}
+        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 space-y-4">
+          {[
+            { icon: "🎯", action: () => navigate('/mission'), label: "Mission" },
+            { icon: "👑", action: () => navigate('/equipe'), label: "Équipe" },
+            { icon: "🏛️", action: () => navigate('/departements'), label: "Départements" },
+            { icon: "💎", action: () => navigate('/contact'), label: "Contact" },
+          ].map((item, index) => (
+            <Button
+              key={index}
+              size="lg"
+              className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white border-2 border-white/40 backdrop-blur-md transition-academic text-2xl elite-glow group"
+              onClick={item.action}
+              title={item.label}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <span className="group-hover:scale-125 transition-transform">{item.icon}</span>
+            </Button>
+          ))}
+        </div>
+
+        {/* Navigation Flottante Latérale Gauche */}
+        <div className="fixed left-8 top-1/2 transform -translate-y-1/2 z-40 space-y-4">
+          {[
+            { icon: "📚", action: () => navigate('/historique'), label: "Histoire" },
+            { icon: "🔬", action: () => navigate('/structures'), label: "Recherche" },
+            { icon: "🌍", action: () => navigate('/partenaires'), label: "Partenaires" },
+            { icon: "📰", action: () => navigate('/actualites'), label: "Actualités" },
+          ].map((item, index) => (
+            <Button
+              key={index}
+              size="lg"
+              className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white border-2 border-white/40 backdrop-blur-md transition-academic text-2xl elite-glow group"
+              onClick={item.action}
+              title={item.label}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <span className="group-hover:scale-125 transition-transform">{item.icon}</span>
+            </Button>
+          ))}
+        </div>
+
+        {/* Bouton d'Action Principal Flottant en Bas */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
+          <Button 
+            size="lg" 
+            className="bg-white/90 text-primary hover:bg-white font-bold text-xl px-16 py-6 rounded-full elite-glow hover:scale-105 transition-all institutional-shadow"
+            onClick={() => navigate('/departements')}
+          >
+            ✨ Découvrir Nos Programmes d'Excellence ✨
+          </Button>
+        </div>
+      </section>
+
+      {/* Section Départements en Grille Massive */}
+      <section className="py-32 institutional-gradient relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <div className="lg:w-1/2 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-8 mb-12 prestigious-slide">
-                <div className="relative">
-                  <img 
-                    src={universityLogo} 
-                    alt="Logo Université Félix Houphouët-Boigny" 
-                    className="h-24 w-24 object-contain hover-scale elite-glow rounded-full p-2"
-                  />
-                  <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-full opacity-20 blur-lg"></div>
-                </div>
-                <div className="relative">
-                  <img 
-                    src={ufrLogo} 
-                    alt="Logo UFR-LLC" 
-                    className="h-24 w-24 object-contain hover-scale elite-glow rounded-full p-2"
-                  />
-                  <div className="absolute -inset-2 bg-gradient-to-r from-accent to-primary rounded-full opacity-20 blur-lg"></div>
-                </div>
-              </div>
-              
-              <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 zoom-in tracking-tight">
-                Bienvenue à l'
-                <span className="gradient-text block text-6xl lg:text-8xl font-black">UFR-LLC</span>
-              </h1>
-              
-              <div className="mb-6 rotate-in">
-                <p className="text-2xl lg:text-3xl text-white/95 font-semibold mb-2">
-                  Université Félix Houphouët-Boigny
-                </p>
-                <div className="h-1 w-32 bg-gradient-to-r from-accent to-primary mx-auto lg:mx-0 rounded-full"></div>
-              </div>
-              
-              <p className="text-xl text-white/90 mb-12 max-w-2xl bounce-in leading-relaxed institutional-shadow bg-black/20 p-6 rounded-2xl backdrop-blur-sm">
-                🌟 L'Unité de Formation et de Recherche en Langues, Littératures et Civilisations 
-                forme l'élite intellectuelle de demain. Excellence académique, innovation pédagogique 
-                et rayonnement international depuis 1964.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                <Button 
-                  size="lg" 
-                  className="bg-white/25 hover:bg-white/35 text-white border-2 border-white/40 backdrop-blur-md transition-academic text-lg px-8 py-4 elite-glow font-semibold"
-                  onClick={() => navigate('/mission')}
-                >
-                  ✨ Découvrir notre mission
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-white/40 text-white hover:bg-white/15 backdrop-blur-md transition-academic text-lg px-8 py-4 font-semibold"
-                  onClick={() => navigate('/departements')}
-                >
-                  🎓 Nos programmes d'excellence
-                </Button>
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2 flex justify-center">
-              <div className="relative mega-float">
-                <div className="w-[450px] h-[450px] rounded-full prestigious-card flex items-center justify-center institutional-shadow">
-                  <div className="text-center text-white">
-                    <div className="text-8xl mb-6 filter drop-shadow-lg">🏛️</div>
-                    <h3 className="text-3xl font-bold mb-4 gradient-text">Excellence Académique</h3>
-                    <div className="h-1 w-24 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-4"></div>
-                    <p className="text-white/90 text-xl font-medium">Depuis 1964</p>
-                    <div className="mt-6 flex justify-center gap-4">
-                      <div className="w-3 h-3 bg-accent rounded-full animate-ping"></div>
-                      <div className="w-3 h-3 bg-primary rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-3 h-3 bg-accent rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
+          <div className="text-center mb-24">
+            <h2 className="text-6xl lg:text-8xl font-black text-white mb-8 slide-in-up tracking-tight gradient-text">
+              NOS DÉPARTEMENTS
+            </h2>
+            <div className="h-2 w-48 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-8"></div>
+            <p className="text-2xl lg:text-3xl text-white/90 max-w-4xl mx-auto zoom-in leading-relaxed">
+              Six centres d'excellence pour forger l'élite intellectuelle
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            {[
+              {
+                icon: "🇬🇧",
+                title: "ANGLAIS",
+                description: "Maîtrise parfaite de la langue de Shakespeare et excellence littéraire",
+                gradient: "from-blue-500 to-blue-700",
+                features: ["Littérature", "Civilisation", "Linguistique"]
+              },
+              {
+                icon: "🇩🇪", 
+                title: "ALLEMAND",
+                description: "Rigueur germanique et tradition intellectuelle européenne",
+                gradient: "from-red-500 to-yellow-500",
+                features: ["Culture", "Philosophie", "Échanges"]
+              },
+              {
+                icon: "🇪🇸",
+                title: "ESPAGNOL",
+                description: "Passion hispanique et richesse des cultures ibéro-américaines",
+                gradient: "from-red-600 to-orange-500",
+                features: ["Civilisation", "Littérature", "Communication"]
+              },
+              {
+                icon: "🇵🇹",
+                title: "PORTUGAIS",
+                description: "Lusophonie et ouverture sur l'espace atlantique",
+                gradient: "from-green-600 to-blue-600",
+                features: ["Brésil", "Afrique", "Europe"]
+              },
+              {
+                icon: "📚",
+                title: "LETTRES MODERNES",
+                description: "Excellence française et patrimoine littéraire universel",
+                gradient: "from-purple-600 to-pink-600",
+                features: ["Création", "Critique", "Pédagogie"]
+              },
+              {
+                icon: "🧠",
+                title: "SCIENCES DU LANGAGE",
+                description: "Recherche de pointe et innovation linguistique",
+                gradient: "from-teal-500 to-cyan-600",
+                features: ["Recherche", "Innovation", "Analyse"]
+              }
+            ].map((dept, index) => (
+              <Card 
+                key={index} 
+                className="group hover-scale transition-academic cursor-pointer prestigious-card border-2 border-white/30 hover:border-white/50 institutional-shadow hover:elite-glow rotate-in overflow-hidden h-[400px]"
+                onClick={() => navigate('/departements')}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${dept.gradient} opacity-15 group-hover:opacity-25 transition-opacity`}></div>
+                <CardContent className="p-8 text-center relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-6xl mb-6 group-hover:scale-125 transition-transform duration-500 filter drop-shadow-lg">
+                      {dept.icon}
                     </div>
+                    <h3 className="text-2xl font-black text-white mb-4 group-hover:gradient-text transition-all">
+                      {dept.title}
+                    </h3>
+                    <div className="h-1 w-20 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-6 group-hover:w-28 transition-all"></div>
+                    <p className="text-white/85 text-base leading-relaxed mb-6">
+                      {dept.description}
+                    </p>
                   </div>
-                </div>
-                <div className="absolute -inset-8 bg-gradient-glow rounded-full opacity-30 blur-xl"></div>
-              </div>
-            </div>
+                  <div className="space-y-2">
+                    {dept.features.map((feature, i) => (
+                      <div key={i} className="text-white/70 text-sm bg-white/10 px-3 py-1 rounded-full inline-block mx-1">
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Central */}
+          <div className="text-center mt-20">
+            <Button 
+              size="lg" 
+              className="bg-white/90 text-primary hover:bg-white font-black text-xl px-20 py-8 rounded-full elite-glow hover:scale-105 transition-all institutional-shadow"
+              onClick={() => navigate('/departements')}
+            >
+              🏛️ Explorer Tous Nos Départements 🏛️
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Quick Access Cards Prestigieuses */}
-      <section className="py-24 institutional-gradient relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/5"></div>
+      {/* Section Statistiques Monumentales */}
+      <section className="py-32 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold text-white mb-6 slide-in-up tracking-tight">
-              ✨ Accès Privilégié ✨
+          <div className="text-center mb-24">
+            <h2 className="text-6xl lg:text-8xl font-black text-foreground mb-8 slide-in-up tracking-tight">
+              L'EXCELLENCE 
+              <span className="gradient-text block text-7xl lg:text-9xl">EN CHIFFRES</span>
             </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-6"></div>
-            <p className="text-2xl text-white/90 max-w-3xl mx-auto zoom-in leading-relaxed">
-              Découvrez l'excellence de notre institution à travers nos services d'élite
+            <div className="h-2 w-48 bg-gradient-to-r from-primary via-accent to-primary mx-auto rounded-full mb-8"></div>
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto zoom-in leading-relaxed">
+              60 années d'excellence académique et de leadership intellectuel
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              {
-                icon: "🎯",
-                title: "Mission & Vision",
-                description: "Notre excellence académique et nos ambitions",
-                path: "/mission",
-                gradient: "from-primary to-accent"
+              { 
+                number: "6", 
+                label: "Départements d'Excellence", 
+                icon: "🏛️", 
+                gradient: "from-primary to-accent",
+                description: "Six centres d'excellence académique"
               },
-              {
-                icon: "👑",
-                title: "Notre Élite",
-                description: "Nos professeurs et chercheurs d'exception",
-                path: "/equipe",
-                gradient: "from-accent to-primary"
+              { 
+                number: "3", 
+                label: "Niveaux Académiques", 
+                icon: "🎓", 
+                gradient: "from-accent to-secondary",
+                description: "Licence, Master, Doctorat"
               },
-              {
-                icon: "🏛️",
-                title: "Départements",
-                description: "Nos filières d'excellence internationale",
-                path: "/departements",
-                gradient: "from-primary to-accent"
+              { 
+                number: "2", 
+                label: "Laboratoires de Recherche", 
+                icon: "🔬", 
+                gradient: "from-secondary to-primary",
+                description: "Innovation et découvertes"
               },
-              {
-                icon: "💎",
-                title: "Contact VIP",
-                description: "Rejoignez notre communauté d'élite",
-                path: "/contact",
-                gradient: "from-accent to-primary"
+              { 
+                number: "1", 
+                label: "Chaire UNESCO", 
+                icon: "🏆", 
+                gradient: "from-primary to-accent",
+                description: "Reconnaissance internationale"
               }
-            ].map((card, index) => (
+            ].map((stat, index) => (
               <Card 
                 key={index} 
-                className="group hover-scale transition-academic cursor-pointer prestigious-card border-2 border-white/30 hover:border-white/50 institutional-shadow hover:elite-glow rotate-in overflow-hidden"
-                onClick={() => navigate(card.path)}
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="text-center p-12 prestigious-card institutional-shadow hover:elite-glow hover-scale group transition-academic overflow-hidden h-[350px]" 
+                style={{animationDelay: `${index * 0.15}s`}}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-10 group-hover:opacity-20 transition-opacity`}></div>
-                <CardContent className="p-10 text-center relative z-10">
-                  <div className="text-5xl mb-6 group-hover:scale-125 transition-transform duration-500 filter drop-shadow-lg">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all">
-                    {card.title}
-                  </h3>
-                  <div className="h-0.5 w-16 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-4 group-hover:w-24 transition-all"></div>
-                  <p className="text-white/80 text-lg leading-relaxed">
-                    {card.description}
-                  </p>
+                <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-15 group-hover:opacity-30 transition-opacity`}></div>
+                <CardContent className="p-0 relative z-10 h-full flex flex-col justify-center">
+                  <div className="text-6xl mb-8 group-hover:scale-125 transition-transform duration-500">{stat.icon}</div>
+                  <div className="text-8xl font-black text-foreground mb-6 group-hover:gradient-text transition-all">{stat.number}</div>
+                  <div className="h-2 w-20 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-6 group-hover:w-28 transition-all"></div>
+                  <h3 className="text-xl font-bold text-foreground mb-4">{stat.label}</h3>
+                  <p className="text-muted-foreground text-sm">{stat.description}</p>
                   <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="flex justify-center gap-2">
-                      <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      <div className="w-3 h-3 bg-accent rounded-full animate-ping"></div>
+                      <div className="w-3 h-3 bg-primary rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-3 h-3 bg-accent rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Excellence Section Époustouflante */}
-      <section className="py-28 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="prestigious-slide">
-              <div className="mb-8">
-                <h2 className="text-6xl font-bold text-foreground mb-4 tracking-tight">
-                  L'Excellence 
-                  <span className="gradient-text block text-7xl font-black">Légendaire</span>
-                </h2>
-                <div className="h-2 w-40 bg-gradient-to-r from-primary via-accent to-primary rounded-full"></div>
-              </div>
-              
-              <p className="text-2xl text-muted-foreground mb-12 leading-relaxed prestigious-card p-8 rounded-2xl backdrop-blur-sm">
-                🏆 Depuis 1964, l'UFR-LLC règne en maître absolu sur l'excellence académique. 
-                Temple du savoir et forge de l'élite intellectuelle, notre institution transcende 
-                les frontières pour former les leaders de demain dans les domaines des langues, 
-                littératures et civilisations.
-              </p>
-              
+          {/* Points forts supplémentaires */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-24">
+            <div className="prestigious-slide text-center lg:text-left">
+              <h3 className="text-4xl lg:text-5xl font-bold text-foreground mb-8 gradient-text">
+                RAYONNEMENT INTERNATIONAL
+              </h3>
               <div className="space-y-6">
                 {[
-                  { icon: "🌍", text: "Rayonnement international d'exception", color: "primary" },
-                  { icon: "👨‍🏫", text: "Corps professoral d'élite mondiale", color: "accent" },
-                  { icon: "🔬", text: "Recherche révolutionnaire", color: "secondary" },
-                  { icon: "🤝", text: "Partenariats prestigieux globaux", color: "primary" }
+                  { icon: "🌍", text: "Partenariats avec 25+ universités mondiales" },
+                  { icon: "🎯", text: "Programmes d'excellence académique" },
+                  { icon: "👨‍🏫", text: "Corps professoral de renommée internationale" },
+                  { icon: "🔬", text: "Recherches révolutionnaires publiées" }
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4 group" style={{animationDelay: `${index * 0.1}s`}}>
-                    <div className="text-2xl group-hover:scale-125 transition-transform">{item.icon}</div>
-                    <div className={`w-4 h-4 bg-${item.color} rounded-full group-hover:scale-110 transition-transform elite-glow`}></div>
+                  <div key={index} className="flex items-center gap-6 group" style={{animationDelay: `${index * 0.1}s`}}>
+                    <div className="text-3xl group-hover:scale-125 transition-transform">{item.icon}</div>
                     <span className="text-foreground text-xl font-medium group-hover:gradient-text transition-all">{item.text}</span>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="zoom-in">
-              <div className="grid grid-cols-2 gap-8">
-                {[
-                  { number: "6", label: "Départements d'Excellence", icon: "🏛️", gradient: "from-primary to-accent" },
-                  { number: "3", label: "Niveaux Académiques", icon: "🎓", gradient: "from-accent to-secondary" },
-                  { number: "2", label: "Laboratoires de Recherche", icon: "🔬", gradient: "from-secondary to-primary" },
-                  { number: "1", label: "Chaire UNESCO", icon: "🏆", gradient: "from-primary to-accent" }
-                ].map((stat, index) => (
-                  <Card key={index} className={`text-center p-8 prestigious-card institutional-shadow hover:elite-glow hover-scale group transition-academic overflow-hidden`} style={{animationDelay: `${index * 0.1}s`}}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-10 group-hover:opacity-25 transition-opacity`}></div>
-                    <CardContent className="p-0 relative z-10">
-                      <div className="text-3xl mb-4 group-hover:scale-125 transition-transform">{stat.icon}</div>
-                      <div className="text-5xl font-black text-foreground mb-3 group-hover:gradient-text transition-all">{stat.number}</div>
-                      <div className="h-1 w-12 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mb-3 group-hover:w-16 transition-all"></div>
-                      <p className="text-muted-foreground font-medium text-lg">{stat.label}</p>
-                      <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="flex justify-center gap-1">
-                          <div className="w-2 h-2 bg-accent rounded-full animate-ping"></div>
-                          <div className="w-2 h-2 bg-primary rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
-                          <div className="w-2 h-2 bg-accent rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+            <div className="zoom-in text-center">
+              <div className="prestigious-card p-12 rounded-3xl institutional-shadow">
+                <div className="text-8xl mb-8">🏆</div>
+                <h3 className="text-3xl font-bold gradient-text mb-6">DEPUIS 1964</h3>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Six décennies d'excellence académique ininterrompue au service 
+                  de la formation des élites intellectuelles africaines et mondiales.
+                </p>
               </div>
             </div>
           </div>
@@ -339,45 +409,71 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Call to Action Majestueux */}
-      <section className="py-32 mega-institutional relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/20"></div>
+      {/* Section Contact Monumentale */}
+      <section className="py-40 mega-institutional relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/30"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-6xl lg:text-7xl font-black text-white mb-8 slide-in-up tracking-tight">
-              Rejoignez l'
-              <span className="gradient-text block text-7xl lg:text-8xl">Élite UFR-LLC</span>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-6xl lg:text-9xl font-black text-white mb-12 slide-in-up tracking-tight">
+              REJOIGNEZ
+              <span className="gradient-text block text-8xl lg:text-10xl">L'ÉLITE</span>
             </h2>
-            <div className="h-2 w-48 bg-gradient-to-r from-accent via-primary to-accent mx-auto rounded-full mb-12"></div>
+            <div className="h-3 w-64 bg-gradient-to-r from-accent via-primary to-accent mx-auto rounded-full mb-16"></div>
             
-            <p className="text-2xl lg:text-3xl text-white/95 mb-16 max-w-4xl mx-auto zoom-in leading-relaxed prestigious-card p-10 rounded-3xl backdrop-blur-sm">
-              🌟 Intégrez l'élite académique et devenez un leader de demain. 
-              Contribuez à l'excellence légendaire de l'enseignement supérieur 
-              et façonnez l'avenir intellectuel de l'Afrique.
+            <p className="text-2xl lg:text-4xl text-white/95 mb-20 max-w-5xl mx-auto zoom-in leading-relaxed prestigious-card p-12 rounded-3xl backdrop-blur-sm institutional-shadow">
+              🌟 Intégrez l'élite académique de demain. Façonnez l'avenir intellectuel 
+              de l'Afrique et du monde entier avec l'UFR-LLC.
             </p>
             
-            <div className="flex flex-col lg:flex-row gap-8 justify-center items-center rotate-in">
+            {/* Boutons d'action principaux */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
               <Button 
                 size="lg" 
-                className="bg-white/90 text-primary hover:bg-white font-bold text-xl px-12 py-6 rounded-2xl elite-glow hover:scale-105 transition-all institutional-shadow"
+                className="bg-white/90 text-primary hover:bg-white font-black text-xl px-8 py-8 rounded-2xl elite-glow hover:scale-105 transition-all institutional-shadow h-24"
                 onClick={() => navigate('/departements')}
               >
-                ✨ Découvrir nos programmes d'excellence
+                🏛️ NOS DÉPARTEMENTS
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-accent/90 text-white hover:bg-accent font-black text-xl px-8 py-8 rounded-2xl elite-glow hover:scale-105 transition-all institutional-shadow h-24"
+                onClick={() => navigate('/contact')}
+              >
+                💎 NOUS CONTACTER
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-3 border-white/60 text-white hover:bg-white/20 backdrop-blur-md font-bold text-xl px-12 py-6 rounded-2xl hover:scale-105 transition-all"
-                onClick={() => navigate('/contact')}
+                className="border-3 border-white/60 text-white hover:bg-white/20 backdrop-blur-md font-black text-xl px-8 py-8 rounded-2xl hover:scale-105 transition-all h-24"
+                onClick={() => navigate('/mission')}
               >
-                💎 Rejoignez l'élite
+                🎯 NOTRE MISSION
               </Button>
             </div>
+
+            {/* Informations de contact prominentes */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+              <div className="prestigious-card p-8 rounded-2xl institutional-shadow">
+                <div className="text-4xl mb-4">📞</div>
+                <h3 className="text-xl font-bold text-white mb-2">TÉLÉPHONE</h3>
+                <p className="text-white/90">+225 014 103 7291</p>
+              </div>
+              <div className="prestigious-card p-8 rounded-2xl institutional-shadow">
+                <div className="text-4xl mb-4">✉️</div>
+                <h3 className="text-xl font-bold text-white mb-2">EMAIL</h3>
+                <p className="text-white/90">ufrllc@hotmail.com</p>
+              </div>
+              <div className="prestigious-card p-8 rounded-2xl institutional-shadow">
+                <div className="text-4xl mb-4">📱</div>
+                <h3 className="text-xl font-bold text-white mb-2">WHATSAPP</h3>
+                <p className="text-white/90">+225 050 685 4764</p>
+              </div>
+            </div>
             
-            <div className="mt-16 flex justify-center gap-6">
-              <div className="w-4 h-4 bg-accent rounded-full animate-bounce"></div>
-              <div className="w-4 h-4 bg-white rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-              <div className="w-4 h-4 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+            <div className="mt-20 flex justify-center gap-8">
+              <div className="w-6 h-6 bg-accent rounded-full animate-bounce"></div>
+              <div className="w-6 h-6 bg-white rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+              <div className="w-6 h-6 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
             </div>
           </div>
         </div>
