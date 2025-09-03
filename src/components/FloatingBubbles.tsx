@@ -78,21 +78,22 @@ const FloatingBubbles = () => {
 
   return (
     <>
-      {/* Floating Bubbles Container - Centered at bottom with better spacing */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
-        <div className="flex items-center space-x-6 bg-background/80 backdrop-blur-sm border border-border rounded-full px-6 py-3 shadow-lg">
+      {/* Floating Bubbles Container - Fixed position top right */}
+      <div className="fixed top-24 right-6 z-40">
+        <div className="flex flex-col space-y-4 bg-background/90 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-2xl">
           {/* WhatsApp Bubble */}
           <Button
             onClick={handleWhatsAppClick}
-            className="floating-element w-12 h-12 md:w-14 md:h-14 bg-green-600 hover:bg-green-700 text-white shadow-lg"
+            className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-xl rounded-full transition-all duration-300 hover:scale-110"
+            title="WhatsApp"
           >
-            <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
+            <MessageCircle className="h-6 w-6" />
           </Button>
 
           {/* Contact Heart Bubble */}
           <div className="relative">
             {showContact && (
-              <Card className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-80 mb-2 animate-fade-in glass-effect border border-white/20">
+              <Card className="absolute bottom-16 right-0 w-80 mb-2 animate-fade-in glass-effect border border-white/20">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold text-lg">Contactez-nous</h3>
@@ -140,9 +141,10 @@ const FloatingBubbles = () => {
             )}
             <Button
               onClick={() => setShowContact(!showContact)}
-              className="floating-element w-12 h-12 md:w-14 md:h-14 bg-red-500 hover:bg-red-600 text-white shadow-lg"
+              className="floating-element w-14 h-14 bg-red-500 hover:bg-red-600 text-white shadow-xl rounded-full transition-all duration-300 hover:scale-110"
+              title="Contact"
             >
-              <Heart className="h-5 w-5 md:h-6 md:w-6" />
+              <Heart className="h-6 w-6" />
             </Button>
           </div>
 
@@ -206,18 +208,20 @@ const FloatingBubbles = () => {
             )}
             <Button
               onClick={handleChatbotClick}
-              className="floating-element w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg"
+              className="floating-element w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-xl rounded-full transition-all duration-300 hover:scale-110"
+              title="Assistant IA"
             >
-              <Bot className="h-5 w-5 md:h-6 md:w-6" />
+              <Bot className="h-6 w-6" />
             </Button>
           </div>
 
           {/* Contact Phone Bubble */}
           <Button
             onClick={handleContactClick}
-            className="floating-element w-12 h-12 md:w-14 md:h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+            className="floating-element w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-xl rounded-full transition-all duration-300 hover:scale-110"
+            title="Téléphone"
           >
-            <Phone className="h-5 w-5 md:h-6 md:w-6" />
+            <Phone className="h-6 w-6" />
           </Button>
         </div>
       </div>
