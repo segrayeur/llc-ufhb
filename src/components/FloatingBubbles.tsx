@@ -78,9 +78,9 @@ const FloatingBubbles = () => {
 
   return (
     <>
-      {/* Floating Bubbles Container - Centered at bottom */}
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex items-center space-x-4">
+      {/* Floating Bubbles Container - Centered at bottom with better spacing */}
+      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+        <div className="flex items-center space-x-6 bg-background/80 backdrop-blur-sm border border-border rounded-full px-6 py-3 shadow-lg">
           {/* WhatsApp Bubble */}
           <Button
             onClick={handleWhatsAppClick}

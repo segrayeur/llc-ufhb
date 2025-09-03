@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { AudioTestimonial } from "@/components/AudioTestimonial";
+import temoignageMarie from "@/assets/temoignage-marie.jpg";
+import temoignageJean from "@/assets/temoignage-jean.jpg";
+import temoignageAminata from "@/assets/temoignage-aminata.jpg";
 
 const Index = () => {
   return (
@@ -193,15 +197,23 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Témoignages Audio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                  <img 
+                    src={temoignageMarie} 
+                    alt="Dr. Marie Kouassi" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardTitle className="text-lg">Dr. Marie Kouassi</CardTitle>
                 <CardDescription>Diplômée en Littérature Anglaise</CardDescription>
               </CardHeader>
               <CardContent>
-                <audio controls className="w-full mb-4">
-                  <source src="/audio/temoignage1.mp3" type="audio/mpeg" />
-                  Votre navigateur ne supporte pas l'audio.
-                </audio>
+                <AudioTestimonial 
+                  text="Mon parcours à l'UFR-LLC m'a permis d'acquérir une expertise exceptionnelle en littérature anglaise. Les professeurs sont d'un niveau remarquable et l'environnement académique est très stimulant. Je recommande vivement cette formation à tous ceux qui souhaitent exceller dans les humanités."
+                  voice="Sarah"
+                  className="mb-4"
+                />
                 <p className="text-sm text-muted-foreground">
                   "Mon parcours à l'UFR-LLC m'a permis d'acquérir une expertise exceptionnelle..."
                 </p>
@@ -209,15 +221,23 @@ const Index = () => {
             </Card>
 
             <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                  <img 
+                    src={temoignageJean} 
+                    alt="Prof. Jean Bakayoko" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardTitle className="text-lg">Prof. Jean Bakayoko</CardTitle>
                 <CardDescription>Ancien étudiant en Allemand</CardDescription>
               </CardHeader>
               <CardContent>
-                <audio controls className="w-full mb-4">
-                  <source src="/audio/temoignage2.mp3" type="audio/mpeg" />
-                  Votre navigateur ne supporte pas l'audio.
-                </audio>
+                <AudioTestimonial 
+                  text="L'excellence académique de l'UFR-LLC est reconnue internationalement. Grâce à ma formation en allemand ici, j'ai pu développer mes compétences linguistiques et culturelles. Aujourd'hui professeur, je peux témoigner de la qualité exceptionnelle de cette institution."
+                  voice="George"
+                  className="mb-4"
+                />
                 <p className="text-sm text-muted-foreground">
                   "L'excellence académique de l'UFR-LLC est reconnue internationalement..."
                 </p>
@@ -225,15 +245,23 @@ const Index = () => {
             </Card>
 
             <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                  <img 
+                    src={temoignageAminata} 
+                    alt="Dr. Aminata Traoré" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardTitle className="text-lg">Dr. Aminata Traoré</CardTitle>
                 <CardDescription>Chercheuse en Sciences du Langage</CardDescription>
               </CardHeader>
               <CardContent>
-                <audio controls className="w-full mb-4">
-                  <source src="/audio/temoignage3.mp3" type="audio/mpeg" />
-                  Votre navigateur ne supporte pas l'audio.
-                </audio>
+                <AudioTestimonial 
+                  text="Les opportunités de recherche offertes à l'UFR-LLC sont extraordinaires. En sciences du langage, j'ai bénéficié d'un encadrement de qualité et d'un accès à des ressources remarquables. Cette formation m'a préparée excellemment à ma carrière de chercheuse."
+                  voice="Laura"
+                  className="mb-4"
+                />
                 <p className="text-sm text-muted-foreground">
                   "Les opportunités de recherche offertes sont extraordinaires..."
                 </p>

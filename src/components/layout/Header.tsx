@@ -130,8 +130,8 @@ export default function Header() {
             <div className="lg:hidden">
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="hover-scale">
-                    <Menu className="h-5 w-5" />
+                  <Button variant="outline" size="icon" className="hover-scale fixed z-[60] bg-background/90 backdrop-blur-sm">
+                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     <span className="sr-only">Menu</span>
                   </Button>
                 </SheetTrigger>
