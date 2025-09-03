@@ -20,73 +20,73 @@ const Galerie = () => {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
-      title: "Bâtiment Principal UFR-LLC",
-      description: "Vue extérieure du bâtiment principal de l'UFR-LLC",
+      src: "/lovable-uploads/ba7a57b9-86b9-4466-ac5f-a158b75c08e3.png",
+      title: "Campus avec Fontaine",
+      description: "Vue panoramique du campus universitaire avec fontaine centrale",
       category: "Campus"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop&crop=center",
-      title: "Entrée Scolarité Centrale",
-      description: "Entrée du bâtiment de la Scolarité Centrale - Section SHS 1 et SHS 2",
+      src: "/lovable-uploads/f2926f1e-972a-4c84-9311-704e34f9e3e4.png",
+      title: "Entrée Université Félix Houphouët-Boigny",
+      description: "Portail principal de l'Université Félix Houphouët-Boigny à Abidjan-Cocody",
       category: "Campus"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=600&fit=crop&crop=center",
-      title: "Bâtiment Pédagogique",
-      description: "Façade du bâtiment pédagogique de l'UFR-LLC",
-      category: "Infrastructure"
+      src: "/lovable-uploads/ad10b7e1-2e5d-4493-846b-57deaac59e3a.png",
+      title: "Cérémonie de Remise de Diplômes",
+      description: "Étudiante diplômée lors de la cérémonie de remise des diplômes",
+      category: "Événements"
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop&crop=center",
-      title: "Université Félix Houphouët-Boigny",
-      description: "Entrée principale de l'Université Félix Houphouët-Boigny à Abidjan-Cocody",
-      category: "Campus"
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&h=600&fit=crop&crop=center",
-      title: "Campus Vue d'ensemble",
-      description: "Vue panoramique du campus de l'UFR-LLC",
-      category: "Campus"
-    },
-    {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop&crop=center",
-      title: "Cour Intérieure",
-      description: "Espace de détente et de socialisation des étudiants",
+      src: "/lovable-uploads/77e8e94f-4bfe-4d4d-b5e4-0ce5283e4872.png",
+      title: "Étudiants en Salle Informatique",
+      description: "Étudiants travaillant sur ordinateur dans nos salles informatiques modernes",
       category: "Vie Étudiante"
     },
     {
+      id: 6,
+      src: "/lovable-uploads/2a1f3e72-a2b7-4e82-ab01-3a2c16be2417.png",
+      title: "Bâtiment UFR-LLC",
+      description: "Façade principale du bâtiment de l'UFR des Langues, Littératures et Civilisations",
+      category: "Infrastructure"
+    },
+    {
+      id: 7,
+      src: "/lovable-uploads/1cdc0494-fa10-4735-adf0-adf4cc42fa40.png",
+      title: "Bureau de la Scolarité",
+      description: "Bâtiment de la Scolarité Centrale - Section SHS 1 et SHS 2",
+      category: "Infrastructure"
+    },
+    {
       id: 8,
-      src: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=800&h=600&fit=crop&crop=center",
-      title: "Bâtiment Académique",
-      description: "Bâtiment abritant les salles de cours et bureaux administratifs",
+      src: "/lovable-uploads/dc471fb1-d817-4e3f-a786-caab6d18ddb3.png",
+      title: "Bâtiment Académique Principal",
+      description: "Bâtiment principal abritant les salles de cours et bureaux administratifs",
       category: "Infrastructure"
     },
     {
       id: 9,
-      src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop&crop=center",
-      title: "Salle de Cours Moderne",
-      description: "Amphithéâtre équipé de technologies modernes pour l'enseignement",
+      src: "/lovable-uploads/85c27d59-7beb-42e0-8b45-55043c557127.png",
+      title: "Scolarité Centrale",
+      description: "Bâtiment de la Scolarité Centrale - Section SHS 1 et SHS 2 avec étudiants",
       category: "Infrastructure"
     },
     {
       id: 10,
-      src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop&crop=center",
-      title: "Bibliothèque Universitaire",
-      description: "Espace de lecture et de recherche pour les étudiants",
-      category: "Infrastructure"
+      src: "/lovable-uploads/7419813b-0ae3-4b7d-805d-9fcc75ab6d75.png",
+      title: "Bâtiment UFR avec Étudiants",
+      description: "Vue du bâtiment UFR-LLC avec étudiants se dirigeant vers les cours",
+      category: "Vie Étudiante"
     },
     {
       id: 11,
-      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop&crop=center",
-      title: "Cérémonie de Remise de Diplômes",
-      description: "Cérémonie officielle de remise de diplômes de l'UFR-LLC",
-      category: "Événements"
+      src: "/lovable-uploads/72a010c0-061d-4d05-b83f-d90e954f2b5b.png",
+      title: "Bâtiment Pédagogique UFR",
+      description: "Bâtiment pédagogique de l'UFR-LLC avec antenne radio et étudiants",
+      category: "Infrastructure"
     },
     {
       id: 12,
@@ -213,7 +213,7 @@ const Galerie = () => {
 
               {/* Photos Tab */}
               <TabsContent value="photos">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredPhotos.map((photo, index) => (
                     <Dialog key={photo.id}>
                       <DialogTrigger asChild>
