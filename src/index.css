@@ -24,10 +24,12 @@
   --ring: 120 100% 20%;
   --radius: 0.5rem;
   
-  /* Gradient variables */
-  --gradient-primary: linear-gradient(135deg, hsl(120 100% 15%), hsl(120 61% 50%));
-  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 45%));
-  --gradient-hero: linear-gradient(135deg, hsl(120 100% 15%) 0%, hsl(120 61% 50%) 50%, hsl(45 100% 55%) 100%);
+  /* Spectacular gradient variables */
+  --gradient-primary: linear-gradient(135deg, hsl(120 100% 15%), hsl(120 61% 50%), hsl(45 100% 55%));
+  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 45%), hsl(120 61% 50%));
+  --gradient-hero: linear-gradient(135deg, hsl(120 100% 15%) 0%, hsl(120 61% 50%) 30%, hsl(45 100% 55%) 70%, hsl(120 100% 15%) 100%);
+  --gradient-institutional: linear-gradient(45deg, hsl(120 100% 15%), hsl(120 61% 50%), hsl(45 100% 55%), hsl(120 100% 15%));
+  --gradient-glow: radial-gradient(circle at center, hsl(45 100% 55% / 0.3), hsl(120 61% 50% / 0.2), transparent);
 }
 
 .dark {
@@ -51,10 +53,12 @@
   --input: 217.2 32.6% 17.5%;
   --ring: 120 61% 50%;
   
-  /* Dark mode gradients */
-  --gradient-primary: linear-gradient(135deg, hsl(120 61% 50%), hsl(120 100% 20%));
-  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 35%));
-  --gradient-hero: linear-gradient(135deg, hsl(222.2 84% 4.9%) 0%, hsl(120 100% 20%) 50%, hsl(45 100% 55%) 100%);
+  /* Dark mode spectacular gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(120 61% 50%), hsl(120 100% 20%), hsl(45 100% 55%));
+  --gradient-accent: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 35%), hsl(120 61% 50%));
+  --gradient-hero: linear-gradient(135deg, hsl(222.2 84% 4.9%) 0%, hsl(120 100% 20%) 30%, hsl(45 100% 55%) 70%, hsl(222.2 84% 4.9%) 100%);
+  --gradient-institutional: linear-gradient(45deg, hsl(222.2 84% 4.9%), hsl(120 100% 20%), hsl(45 100% 55%), hsl(222.2 84% 4.9%));
+  --gradient-glow: radial-gradient(circle at center, hsl(45 100% 55% / 0.4), hsl(120 61% 50% / 0.3), transparent);
 }
 
 /* Spectacular animations and effects */
@@ -96,10 +100,64 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes institutional-glow {
+  0%, 100% { 
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--accent) / 0.2); 
+  }
+  50% { 
+    box-shadow: 0 0 50px hsl(var(--primary) / 0.5), 0 0 80px hsl(var(--accent) / 0.4); 
+  }
+}
+
+@keyframes mega-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(0deg); }
+  75% { transform: translateY(-20px) rotate(-1deg); }
+}
+
+@keyframes prestigious-slide {
+  from { 
+    transform: translateX(-100px) rotate(-5deg); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0) rotate(0deg); 
+    opacity: 1; 
+  }
+}
+
 .hero-gradient {
   background: var(--gradient-hero);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
+}
+
+.institutional-gradient {
+  background: var(--gradient-institutional);
+  background-size: 300% 300%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+.mega-institutional {
+  background: var(--gradient-hero);
+  background-size: 500% 500%;
+  animation: gradient-shift 10s ease infinite, institutional-glow 3s ease-in-out infinite;
+}
+
+.prestigious-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.mega-float {
+  animation: mega-float 8s ease-in-out infinite;
+}
+
+.prestigious-slide {
+  animation: prestigious-slide 1s ease-out;
 }
 
 .float-animation {
@@ -152,7 +210,21 @@
 }
 
 .academic-shadow {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.2), 0 20px 20px -10px rgba(0, 0, 0, 0.1);
+}
+
+.institutional-shadow {
+  box-shadow: 
+    0 35px 70px -15px rgba(0, 0, 0, 0.3),
+    0 25px 25px -15px rgba(0, 0, 0, 0.15),
+    0 0 50px hsl(var(--primary) / 0.1);
+}
+
+.elite-glow {
+  box-shadow: 
+    0 0 40px hsl(var(--accent) / 0.4),
+    0 0 80px hsl(var(--primary) / 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
 .transition-academic {
