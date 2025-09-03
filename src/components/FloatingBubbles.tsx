@@ -23,30 +23,8 @@ const FloatingBubbles = () => {
 
   return (
     <>
-      {/* WhatsApp Bubble - Left Side */}
-      <div className="fixed bottom-20 left-6 z-50">
-        <Button
-          onClick={handleWhatsAppClick}
-          className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-glow"
-          style={{ bottom: '0px', left: '0px' }}
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
-      </div>
-
-      {/* OpenAI Chat AI Bubble - Left Side */}
-      <div className="fixed bottom-8 left-6 z-50">
-        <Button
-          onClick={handleOpenAIClick}
-          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-glow pulse-glow"
-          style={{ bottom: '0px', left: '0px' }}
-        >
-          <Bot className="h-6 w-6" />
-        </Button>
-      </div>
-
-      {/* Contact Bubble - Right Side */}
-      <div className="fixed bottom-20 right-6 z-50">
+      {/* Contact Bubble */}
+      <div className="fixed bottom-32 right-6 z-50">
         <div className="relative">
           {showContact && (
             <Card className="absolute bottom-16 right-0 w-80 mb-2 animate-fade-in glass-effect border border-white/20">
@@ -98,6 +76,28 @@ const FloatingBubbles = () => {
             <Phone className="h-6 w-6" />
           </Button>
         </div>
+      </div>
+
+      {/* WhatsApp Bubble */}
+      <div className="fixed bottom-20 right-6 z-50">
+        <Button
+          onClick={handleWhatsAppClick}
+          className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-glow"
+          style={{ bottom: '0px', right: '0px' }}
+        >
+          <MessageCircle className="h-6 w-6" />
+        </Button>
+      </div>
+
+      {/* OpenAI Bubble - Left Side */}
+      <div className="fixed bottom-8 left-6 z-50">
+        <Button
+          onClick={handleOpenAIClick}
+          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-glow pulse-glow"
+          style={{ bottom: '0px', left: '0px' }}
+        >
+          <Bot className="h-6 w-6" />
+        </Button>
       </div>
 
       {/* Chatbot Bubble */}
