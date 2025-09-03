@@ -13,41 +13,62 @@ const Galerie = () => {
   const photos = [
     {
       id: 1,
-      src: "/gallery/campus1.jpg",
-      title: "Campus Principal",
-      description: "Vue d'ensemble du campus de l'UFR-LLC",
+      src: require("../assets/campus-main.jpg"),
+      title: "Campus Principal UFHB",
+      description: "Vue panoramique du campus de l'Université Félix Houphouët-Boigny avec la fontaine centrale",
       category: "Campus"
     },
     {
       id: 2,
+      src: require("../assets/campus-buildings.jpg"),
+      title: "Bâtiments Universitaires",
+      description: "Architecture moderne des bâtiments de l'UFR-LLC",
+      category: "Infrastructure"
+    },
+    {
+      id: 3,
+      src: require("../assets/campus-entrance.jpg"),
+      title: "Entrée Principale",
+      description: "Portail d'entrée officiel de l'Université Félix Houphouët-Boigny",
+      category: "Campus"
+    },
+    {
+      id: 4,
+      src: require("../assets/ufhb-logo-official.jpg"),
+      title: "Logo Officiel UFHB",
+      description: "Emblème de l'Université Félix Houphouët-Boigny",
+      category: "Présentation"
+    },
+    {
+      id: 5,
       src: "/gallery/amphitheatre.jpg",
       title: "Amphithéâtre Central",
       description: "Grand amphithéâtre pour les conférences",
       category: "Infrastructure"
     },
     {
-      id: 3,
+      id: 6,
       src: "/gallery/bibliotheque.jpg",
       title: "Bibliothèque Universitaire",
       description: "Espace de recherche et d'étude",
       category: "Infrastructure"
     },
     {
-      id: 4,
+      id: 7,
       src: "/gallery/ceremonie.jpg",
       title: "Cérémonie de Remise des Diplômes",
       description: "Promotion 2023-2024",
       category: "Événements"
     },
     {
-      id: 5,
+      id: 8,
       src: "/gallery/conference.jpg",
       title: "Conférence Internationale",
       description: "Colloque sur les langues africaines",
       category: "Événements"
     },
     {
-      id: 6,
+      id: 9,
       src: "/gallery/etudiants.jpg",
       title: "Vie Étudiante",
       description: "Moments de convivialité entre étudiants",
