@@ -13,52 +13,87 @@ const Galerie = () => {
   const photos = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      src: "/public/lovable-uploads/9db0c164-74a6-4eea-beb5-c5a83c35e359.png",
+      title: "Logo UFR-LLC",
+      description: "Logo officiel de l'UFR des Langues, Littératures et Civilisations",
+      category: "Institutionnel"
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
       title: "Bâtiment Principal UFR-LLC",
       description: "Vue extérieure du bâtiment principal de l'UFR-LLC",
       category: "Campus"
     },
     {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop&crop=center",
+      id: 3,
+      src: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop&crop=center",
       title: "Entrée Scolarité Centrale",
       description: "Entrée du bâtiment de la Scolarité Centrale - Section SHS 1 et SHS 2",
       category: "Campus"
     },
     {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop&crop=center",
+      id: 4,
+      src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=600&fit=crop&crop=center",
       title: "Bâtiment Pédagogique",
       description: "Façade du bâtiment pédagogique de l'UFR-LLC",
       category: "Infrastructure"
     },
     {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
+      id: 5,
+      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop&crop=center",
       title: "Université Félix Houphouët-Boigny",
       description: "Entrée principale de l'Université Félix Houphouët-Boigny à Abidjan-Cocody",
       category: "Campus"
     },
     {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop&crop=center",
+      id: 6,
+      src: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&h=600&fit=crop&crop=center",
       title: "Campus Vue d'ensemble",
       description: "Vue panoramique du campus de l'UFR-LLC",
       category: "Campus"
     },
     {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop&crop=center",
+      id: 7,
+      src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop&crop=center",
       title: "Cour Intérieure",
       description: "Espace de détente et de socialisation des étudiants",
       category: "Vie Étudiante"
     },
     {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=400&h=300&fit=crop&crop=center",
+      id: 8,
+      src: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=800&h=600&fit=crop&crop=center",
       title: "Bâtiment Académique",
       description: "Bâtiment abritant les salles de cours et bureaux administratifs",
       category: "Infrastructure"
+    },
+    {
+      id: 9,
+      src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop&crop=center",
+      title: "Salle de Cours Moderne",
+      description: "Amphithéâtre équipé de technologies modernes pour l'enseignement",
+      category: "Infrastructure"
+    },
+    {
+      id: 10,
+      src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop&crop=center",
+      title: "Bibliothèque Universitaire",
+      description: "Espace de lecture et de recherche pour les étudiants",
+      category: "Infrastructure"
+    },
+    {
+      id: 11,
+      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop&crop=center",
+      title: "Cérémonie de Remise de Diplômes",
+      description: "Cérémonie officielle de remise de diplômes de l'UFR-LLC",
+      category: "Événements"
+    },
+    {
+      id: 12,
+      src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop&crop=center",
+      title: "Conférence Académique",
+      description: "Conférence internationale sur les langues et civilisations",
+      category: "Événements"
     }
   ];
 
@@ -101,7 +136,7 @@ const Galerie = () => {
     }
   ];
 
-  const categories = ["Tous", "Campus", "Infrastructure", "Événements", "Vie Étudiante", "Présentation", "Témoignages", "Recherche"];
+  const categories = ["Tous", "Campus", "Infrastructure", "Événements", "Vie Étudiante", "Institutionnel", "Présentation", "Témoignages", "Recherche"];
   const [selectedCategory, setSelectedCategory] = useState("Tous");
 
   const filteredPhotos = selectedCategory === "Tous" 

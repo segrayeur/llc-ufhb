@@ -130,35 +130,45 @@ export default function Header() {
             <div className="lg:hidden">
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="hover-scale fixed z-[60] bg-background/90 backdrop-blur-sm">
-                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="hover-scale relative z-[60] bg-background/90 backdrop-blur-sm border-primary/30 transition-all duration-300"
+                    onClick={() => setIsOpen(!isOpen)}
+                  >
+                    <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                      {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    </div>
                     <span className="sr-only">Menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-80 hero-gradient">
-                  <div className="flex flex-col space-y-2 mt-8">
+                <SheetContent 
+                  side="left" 
+                  className="w-80 hero-gradient border-r border-white/20 backdrop-blur-xl"
+                  onOpenAutoFocus={(e) => e.preventDefault()}
+                >
+                  <div className="flex flex-col space-y-2 mt-8 px-2">
                     {navigation.map((item, index) => (
-                      <div key={item.name}>
+                      <div key={item.name} className="slide-in-left" style={{animationDelay: `${index * 100}ms`}}>
                         <Link 
                           to={item.href} 
                           onClick={() => setIsOpen(false)} 
-                          className={`block px-4 py-3 rounded-lg text-base font-medium transition-academic bounce-in ${
+                          className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                             isActive(item.href) 
-                              ? "bg-white/20 text-white" 
-                              : "text-white/90 hover:bg-white/10"
+                              ? "bg-white/20 text-white shadow-lg" 
+                              : "text-white/90 hover:bg-white/10 hover:text-white"
                           }`}
-                          style={{animationDelay: `${index * 100}ms`}}
                         >
                           {item.name}
                         </Link>
                         {item.submenu && (
-                          <div className="ml-4 mt-2 space-y-1">
+                          <div className="ml-4 mt-2 space-y-1 animate-fade-in">
                             {item.submenu.map(subItem => (
                               <Link
                                 key={subItem.name}
                                 to={subItem.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded transition-colors"
+                                className="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded transition-all duration-200"
                               >
                                 {subItem.name}
                               </Link>
