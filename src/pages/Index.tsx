@@ -22,9 +22,21 @@ const Index = () => {
           <div className="absolute bottom-10 right-10 w-12 h-12 bg-accent rounded-full float-animation" style={{animationDelay: '4s'}}></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 slide-in-up">
-            Bienvenue à l'<span className="gradient-text">UFR-LLC</span>
-          </h1>
+          <div className="flex items-center justify-center mb-8">
+            <img 
+              src="/src/assets/university-logo-new.png" 
+              alt="Logo Université Félix Houphouët-Boigny" 
+              className="w-16 h-16 md:w-20 md:h-20 mr-6 opacity-90"
+            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white slide-in-up">
+              Bienvenue à l'<span className="gradient-text">UFR-LLC</span>
+            </h1>
+            <img 
+              src="/src/assets/ufr-logo-new.png" 
+              alt="Logo UFR-LLC" 
+              className="w-16 h-16 md:w-20 md:h-20 ml-6 opacity-90"
+            />
+          </div>
           <p className="text-2xl md:text-3xl text-white/95 mb-8 max-w-4xl mx-auto zoom-in font-light">
             Les Humanités au service de la société et du développement
           </p>

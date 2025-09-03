@@ -43,7 +43,7 @@ const FloatingBubbles = () => {
     setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
 
     try {
-      const { data, error } = await supabase.functions.invoke('ufr-chat', {
+      const { data, error } = await supabase.functions.invoke('ufr-chat-openai', {
         body: { message: userMessage, sessionId }
       });
 
@@ -78,149 +78,146 @@ const FloatingBubbles = () => {
 
   return (
     <>
-      {/* WhatsApp Bubble - Left Side */}
-      <div className="fixed bottom-20 left-6 z-50">
-        <Button
-          onClick={handleWhatsAppClick}
-          className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-lg"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
-      </div>
-
-      {/* UFR Chat AI Bubble - Left Side */}
-      <div className="fixed bottom-8 left-6 z-50">
-        <Button
-          onClick={handleChatbotClick}
-          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-lg animate-pulse"
-        >
-          <Bot className="h-6 w-6" />
-        </Button>
-      </div>
-
-      {/* Contact Heart Bubble - Right Side */}
-      <div className="fixed bottom-20 right-6 z-50">
-        <div className="relative">
-          {showContact && (
-            <Card className="absolute bottom-16 right-0 w-80 mb-2 animate-fade-in glass-effect border border-white/20">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-lg">Contactez-nous</h3>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    onClick={() => setShowContact(false)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-4 w-4 text-primary" />
-                    <div>
-                      <p className="text-sm font-medium">Téléphones</p>
-                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary" 
-                         onClick={() => window.open('tel:+2250141037291')}>+225 0141037291</p>
-                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                         onClick={() => window.open('tel:+2250141035350')}>+225 0141035350</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <MessageCircle className="h-4 w-4 text-green-600" />
-                    <div>
-                      <p className="text-sm font-medium">WhatsApp</p>
-                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                         onClick={handleWhatsAppClick}>+225 0506854764</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-4 w-4 text-blue-600" />
-                    <div>
-                      <p className="text-sm font-medium">Emails</p>
-                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                         onClick={() => window.open('mailto:ufrllc@hotmail.com')}>ufrllc@hotmail.com</p>
-                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
-                         onClick={() => window.open('mailto:llc.ufr@gmail.com')}>llc.ufr@gmail.com</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+      {/* Floating Bubbles Container - Centered at bottom */}
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="flex items-center space-x-4">
+          {/* WhatsApp Bubble */}
           <Button
-            onClick={() => setShowContact(!showContact)}
-            className="floating-element w-14 h-14 bg-red-500 hover:bg-red-600 text-white shadow-lg"
+            onClick={handleWhatsAppClick}
+            className="floating-element w-12 h-12 md:w-14 md:h-14 bg-green-600 hover:bg-green-700 text-white shadow-lg"
           >
-            <Heart className="h-6 w-6" />
+            <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
           </Button>
-        </div>
-      </div>
 
-      {/* UFR Chatbot Bubble */}
-      <div className="fixed bottom-8 right-6 z-50">
-        <div className="relative">
-          {showChat && (
-            <Card className="absolute bottom-16 right-0 w-80 h-96 mb-2 animate-fade-in glass-effect border border-white/20">
-              <CardContent className="p-4 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-lg flex items-center">
-                    <Bot className="h-5 w-5 mr-2 text-primary" />
-                    Assistant UFR-LLC
-                  </h3>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    onClick={() => setShowChat(false)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="flex-1 bg-muted/20 rounded-lg p-4 mb-4 overflow-y-auto">
-                  <div className="space-y-3">
-                    {messages.map((message, index) => (
-                      <div key={index} className={`p-3 rounded-lg ${
-                        message.type === 'bot' 
-                          ? 'bg-primary/10 mr-4' 
-                          : 'bg-accent/10 ml-4'
-                      }`}>
-                        <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                      </div>
-                    ))}
-                    {isLoading && (
-                      <div className="bg-primary/10 p-3 rounded-lg mr-4">
-                        <p className="text-sm">Assistant en train de répondre...</p>
-                      </div>
-                    )}
+          {/* Contact Heart Bubble */}
+          <div className="relative">
+            {showContact && (
+              <Card className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-80 mb-2 animate-fade-in glass-effect border border-white/20">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-lg">Contactez-nous</h3>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => setShowContact(false)}
+                      className="h-8 w-8 p-0"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
                   </div>
-                </div>
-                <div className="flex space-x-2">
-                  <Input 
-                    value={inputMessage}
-                    onChange={(e) => setInputMessage(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Tapez votre message..."
-                    className="flex-1"
-                    disabled={isLoading}
-                  />
-                  <Button 
-                    size="sm" 
-                    onClick={handleSendMessage}
-                    disabled={isLoading || !inputMessage.trim()}
-                    className="px-3"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <Phone className="h-4 w-4 text-primary" />
+                      <div>
+                        <p className="text-sm font-medium">Téléphones</p>
+                        <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary" 
+                           onClick={() => window.open('tel:+2250141037291')}>+225 0141037291</p>
+                        <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                           onClick={() => window.open('tel:+2250141035350')}>+225 0141035350</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <MessageCircle className="h-4 w-4 text-green-600" />
+                      <div>
+                        <p className="text-sm font-medium">WhatsApp</p>
+                        <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                           onClick={handleWhatsAppClick}>+225 0506854764</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Mail className="h-4 w-4 text-blue-600" />
+                      <div>
+                        <p className="text-sm font-medium">Emails</p>
+                        <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                           onClick={() => window.open('mailto:ufrllc@hotmail.com')}>ufrllc@hotmail.com</p>
+                        <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                           onClick={() => window.open('mailto:llc.ufr@gmail.com')}>llc.ufr@gmail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+            <Button
+              onClick={() => setShowContact(!showContact)}
+              className="floating-element w-12 h-12 md:w-14 md:h-14 bg-red-500 hover:bg-red-600 text-white shadow-lg"
+            >
+              <Heart className="h-5 w-5 md:h-6 md:w-6" />
+            </Button>
+          </div>
+
+          {/* UFR Chat AI Bubble */}
+          <div className="relative">
+            {showChat && (
+              <Card className="absolute bottom-16 right-0 w-80 h-96 mb-2 animate-fade-in glass-effect border border-white/20">
+                <CardContent className="p-4 h-full flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-lg flex items-center">
+                      <Bot className="h-5 w-5 mr-2 text-primary" />
+                      Assistant UFR-LLC AI
+                    </h3>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => setShowChat(false)}
+                      className="h-8 w-8 p-0"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <div className="flex-1 bg-muted/20 rounded-lg p-4 mb-4 overflow-y-auto">
+                    <div className="space-y-3">
+                      {messages.map((message, index) => (
+                        <div key={index} className={`p-3 rounded-lg ${
+                          message.type === 'bot' 
+                            ? 'bg-primary/10 mr-4' 
+                            : 'bg-accent/10 ml-4'
+                        }`}>
+                          <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                        </div>
+                      ))}
+                      {isLoading && (
+                        <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                          <p className="text-sm">Assistant en train de répondre...</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex space-x-2">
+                    <Input 
+                      value={inputMessage}
+                      onChange={(e) => setInputMessage(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder="Tapez votre message..."
+                      className="flex-1"
+                      disabled={isLoading}
+                    />
+                    <Button 
+                      size="sm" 
+                      onClick={handleSendMessage}
+                      disabled={isLoading || !inputMessage.trim()}
+                      className="px-3"
+                    >
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+            <Button
+              onClick={handleChatbotClick}
+              className="floating-element w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg"
+            >
+              <Bot className="h-5 w-5 md:h-6 md:w-6" />
+            </Button>
+          </div>
+
+          {/* Contact Phone Bubble */}
           <Button
-            onClick={handleChatbotClick}
-            className="floating-element w-14 h-14 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
+            onClick={handleContactClick}
+            className="floating-element w-12 h-12 md:w-14 md:h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
           >
-            <Bot className="h-6 w-6" />
+            <Phone className="h-5 w-5 md:h-6 md:w-6" />
           </Button>
         </div>
       </div>
