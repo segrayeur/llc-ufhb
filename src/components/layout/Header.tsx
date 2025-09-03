@@ -48,6 +48,10 @@ const navigation = [
   {
     name: "Contact",
     href: "/contact"
+  },
+  {
+    name: "Faire un Don",
+    href: "/dons"
   }
 ];
 

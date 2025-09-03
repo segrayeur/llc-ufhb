@@ -16,6 +16,8 @@ import Structures from "./pages/Structures";
 import Partenaires from "./pages/Partenaires";
 import Actualites from "./pages/Actualites";
 import Galerie from "./pages/Galerie";
+import Dons from "./pages/Dons";
+import DonSucces from "./pages/DonSucces";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
@@ -45,6 +47,8 @@ const App = () => (
             <Route path="/structures" element={<Structures />} />
             <Route path="/partenaires" element={<Partenaires />} />
             <Route path="/actualites" element={<Actualites />} />
+            <Route path="/dons" element={<Dons />} />
+            <Route path="/don-succes" element={<DonSucces />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />

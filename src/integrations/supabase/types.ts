@@ -38,6 +38,48 @@ export type Database = {
         }
         Relationships: []
       }
+      donations: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string | null
+          donor_email: string
+          donor_name: string
+          donor_phone: string | null
+          id: string
+          message: string | null
+          payment_status: string | null
+          paystack_reference: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string | null
+          donor_email: string
+          donor_name: string
+          donor_phone?: string | null
+          id?: string
+          message?: string | null
+          payment_status?: string | null
+          paystack_reference?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string | null
+          donor_email?: string
+          donor_name?: string
+          donor_phone?: string | null
+          id?: string
+          message?: string | null
+          payment_status?: string | null
+          paystack_reference?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       inscriptions: {
         Row: {
           created_at: string

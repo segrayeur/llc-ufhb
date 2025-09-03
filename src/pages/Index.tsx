@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AudioTestimonial } from "@/components/AudioTestimonial";
+import { DonationButton } from "@/components/DonationButton";
 import temoignageMarie from "@/assets/temoignage-marie.jpg";
 import temoignageJean from "@/assets/temoignage-jean.jpg";
 import temoignageAminata from "@/assets/temoignage-aminata.jpg";
@@ -71,6 +72,7 @@ const Index = () => {
             { icon: "🎯", action: () => navigate('/mission'), label: "Mission", color: "from-blue-500 to-purple-600" },
             { icon: "👑", action: () => navigate('/equipe'), label: "Équipe", color: "from-purple-500 to-pink-600" },
             { icon: "🏛️", action: () => navigate('/departements'), label: "Départements", color: "from-green-500 to-blue-600" },
+            { icon: "💖", action: () => navigate('/dons'), label: "Faire un Don", color: "from-red-500 to-pink-600" },
             { icon: "💎", action: () => navigate('/contact'), label: "Contact", color: "from-yellow-500 to-red-600" },
           ].map((item, index) => (
             <div key={index} className="group relative" style={{ animationDelay: `${index * 0.1}s` }}>
