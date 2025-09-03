@@ -27,26 +27,32 @@ const Index = () => {
         <FloatingBubbles />
         <div className="absolute inset-0 bg-black/40"></div>
         
-        {/* Logo Central Géant */}
+        {/* Logo Central Ultra-Spectaculaire */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
           <div className="relative mega-float">
-            <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full prestigious-card flex items-center justify-center institutional-shadow">
+            <div className="w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] rounded-3xl prestigious-card flex items-center justify-center institutional-shadow holographic">
               <div className="text-center text-white">
-                <div className="text-9xl lg:text-[12rem] mb-8 filter drop-shadow-lg">🏛️</div>
-                <h3 className="text-2xl lg:text-4xl font-bold gradient-text">UFR-LLC</h3>
-                <div className="h-2 w-32 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mt-4"></div>
+                <div className="text-9xl lg:text-[14rem] mb-8 filter drop-shadow-2xl neon-text">🏛️</div>
+                <h3 className="text-3xl lg:text-5xl font-black gradient-text mb-4">UFR-LLC</h3>
+                <div className="h-3 w-40 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 mx-auto rounded-full animate-pulse"></div>
+                <div className="mt-6 flex justify-center gap-3">
+                  <div className="w-4 h-4 bg-pink-400 rounded-full animate-bounce"></div>
+                  <div className="w-4 h-4 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-4 h-4 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+                </div>
               </div>
             </div>
-            <div className="absolute -inset-12 bg-gradient-glow rounded-full opacity-40 blur-2xl"></div>
+            <div className="absolute -inset-16 bg-gradient-to-r from-pink-500/30 via-purple-500/30 to-cyan-500/30 rounded-full opacity-50 blur-3xl animate-pulse"></div>
           </div>
         </div>
 
-        {/* Titre Principal Imposant */}
-        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-center z-30">
-          <h1 className="text-4xl lg:text-8xl font-black text-white mb-4 zoom-in tracking-tight gradient-text">
-            EXCELLENCE ACADÉMIQUE
+        {/* Titre Principal Ultra-Imposant */}
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 text-center z-30">
+          <h1 className="text-5xl lg:text-9xl font-black text-white mb-6 zoom-in tracking-tight gradient-text neon-text">
+            EXCELLENCE LÉGENDAIRE
           </h1>
-          <p className="text-xl lg:text-3xl text-white/95 font-semibold">
+          <div className="h-2 w-64 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 mx-auto rounded-full mb-4 animate-pulse"></div>
+          <p className="text-2xl lg:text-4xl text-white/95 font-bold holographic">
             Université Félix Houphouët-Boigny
           </p>
         </div>
@@ -59,56 +65,76 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Navigation Flottante Latérale */}
-        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 space-y-4">
+        {/* Navigation Flottante Ultra-Stable Droite */}
+        <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
           {[
-            { icon: "🎯", action: () => navigate('/mission'), label: "Mission" },
-            { icon: "👑", action: () => navigate('/equipe'), label: "Équipe" },
-            { icon: "🏛️", action: () => navigate('/departements'), label: "Départements" },
-            { icon: "💎", action: () => navigate('/contact'), label: "Contact" },
+            { icon: "🎯", action: () => navigate('/mission'), label: "Mission", color: "from-blue-500 to-purple-600" },
+            { icon: "👑", action: () => navigate('/equipe'), label: "Équipe", color: "from-purple-500 to-pink-600" },
+            { icon: "🏛️", action: () => navigate('/departements'), label: "Départements", color: "from-green-500 to-blue-600" },
+            { icon: "💎", action: () => navigate('/contact'), label: "Contact", color: "from-yellow-500 to-red-600" },
           ].map((item, index) => (
-            <Button
-              key={index}
-              size="lg"
-              className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white border-2 border-white/40 backdrop-blur-md transition-academic text-2xl elite-glow group"
-              onClick={item.action}
-              title={item.label}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <span className="group-hover:scale-125 transition-transform">{item.icon}</span>
-            </Button>
+            <div key={index} className="group relative" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Button
+                size="lg"
+                className="w-16 h-16 rounded-2xl bg-black/80 hover:bg-black/90 text-white border-2 border-white/60 hover:border-white/80 backdrop-blur-xl transition-all duration-300 text-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                onClick={item.action}
+                title={item.label}
+              >
+                <span className="group-hover:scale-125 transition-transform duration-300 filter drop-shadow-lg">
+                  {item.icon}
+                </span>
+              </Button>
+              {/* Label flottant */}
+              <div className="absolute right-20 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                <div className={`bg-gradient-to-r ${item.color} text-white px-4 py-2 rounded-xl font-bold text-sm whitespace-nowrap shadow-2xl backdrop-blur-sm`}>
+                  {item.label}
+                </div>
+                <div className={`absolute left-full top-1/2 transform -translate-y-1/2 border-8 border-transparent border-l-white`}></div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Navigation Flottante Latérale Gauche */}
-        <div className="fixed left-8 top-1/2 transform -translate-y-1/2 z-40 space-y-4">
+        {/* Navigation Flottante Ultra-Stable Gauche */}
+        <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
           {[
-            { icon: "📚", action: () => navigate('/historique'), label: "Histoire" },
-            { icon: "🔬", action: () => navigate('/structures'), label: "Recherche" },
-            { icon: "🌍", action: () => navigate('/partenaires'), label: "Partenaires" },
-            { icon: "📰", action: () => navigate('/actualites'), label: "Actualités" },
+            { icon: "📚", action: () => navigate('/historique'), label: "Histoire", color: "from-indigo-500 to-purple-600" },
+            { icon: "🔬", action: () => navigate('/structures'), label: "Recherche", color: "from-teal-500 to-green-600" },
+            { icon: "🌍", action: () => navigate('/partenaires'), label: "Partenaires", color: "from-orange-500 to-red-600" },
+            { icon: "📰", action: () => navigate('/actualites'), label: "Actualités", color: "from-cyan-500 to-blue-600" },
           ].map((item, index) => (
-            <Button
-              key={index}
-              size="lg"
-              className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white border-2 border-white/40 backdrop-blur-md transition-academic text-2xl elite-glow group"
-              onClick={item.action}
-              title={item.label}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <span className="group-hover:scale-125 transition-transform">{item.icon}</span>
-            </Button>
+            <div key={index} className="group relative" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Button
+                size="lg"
+                className="w-16 h-16 rounded-2xl bg-black/80 hover:bg-black/90 text-white border-2 border-white/60 hover:border-white/80 backdrop-blur-xl transition-all duration-300 text-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                onClick={item.action}
+                title={item.label}
+              >
+                <span className="group-hover:scale-125 transition-transform duration-300 filter drop-shadow-lg">
+                  {item.icon}
+                </span>
+              </Button>
+              {/* Label flottant */}
+              <div className="absolute left-20 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                <div className={`bg-gradient-to-r ${item.color} text-white px-4 py-2 rounded-xl font-bold text-sm whitespace-nowrap shadow-2xl backdrop-blur-sm`}>
+                  {item.label}
+                </div>
+                <div className={`absolute right-full top-1/2 transform -translate-y-1/2 border-8 border-transparent border-r-white`}></div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Bouton d'Action Principal Flottant en Bas */}
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
+        {/* Bouton d'Action Principal Ultra-Spectaculaire */}
+        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
           <Button 
             size="lg" 
-            className="bg-white/90 text-primary hover:bg-white font-bold text-xl px-16 py-6 rounded-full elite-glow hover:scale-105 transition-all institutional-shadow"
+            className="modern-button bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white hover:from-cyan-500 hover:via-purple-500 hover:to-pink-500 font-black text-xl px-20 py-8 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(168,85,247,0.8)] hover:scale-105 transition-all duration-300 border-2 border-white/30"
             onClick={() => navigate('/departements')}
           >
-            ✨ Découvrir Nos Programmes d'Excellence ✨
+            <span className="relative z-10 flex items-center gap-3">
+              ✨ PROGRAMMES D'EXCELLENCE ✨
+            </span>
           </Button>
         </div>
       </section>
