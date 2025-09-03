@@ -48,6 +48,22 @@ export function AudioTestimonial({ text, voice = "Sarah", className = "" }: Audi
         const url = URL.createObjectURL(blob);
         setAudioUrl(url);
         console.log('Audio URL created successfully');
+        
+        // Auto-play after generation
+        setTimeout(() => {
+          const audio = new Audio(url);
+          audio.addEventListener('loadedmetadata', () => {
+            setDuration(audio.duration || 0);
+          });
+          audio.addEventListener('timeupdate', () => {
+            setCurrentTime(audio.currentTime || 0);
+          });
+          audio.addEventListener('ended', () => setIsPlaying(false));
+          audioRef.current = audio;
+          audio.play().then(() => {
+            setIsPlaying(true);
+          }).catch(console.error);
+        }, 100);
       } else {
         throw new Error(data?.error || 'Aucun contenu audio reçu');
       }
@@ -66,6 +82,12 @@ export function AudioTestimonial({ text, voice = "Sarah", className = "" }: Audi
   const togglePlay = async () => {
     if (!audioUrl) {
       await generateAudio();
+      // After generating, we need to wait a bit and try again
+      setTimeout(() => {
+        if (audioUrl) {
+          togglePlay();
+        }
+      }, 100);
       return;
     }
 
@@ -84,8 +106,12 @@ export function AudioTestimonial({ text, voice = "Sarah", className = "" }: Audi
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play();
-      setIsPlaying(true);
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error('Error playing audio:', error);
+      }
     }
   };
 

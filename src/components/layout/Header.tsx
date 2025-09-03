@@ -134,7 +134,6 @@ export default function Header() {
                     variant="outline" 
                     size="icon" 
                     className="hover-scale relative z-[60] bg-background/90 backdrop-blur-sm border-primary/30 transition-all duration-300"
-                    onClick={() => setIsOpen(!isOpen)}
                   >
                     <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                       {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -144,7 +143,7 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent 
                   side="left" 
-                  className="w-80 hero-gradient border-r border-white/20 backdrop-blur-xl"
+                  className="w-80 hero-gradient border-r border-white/20 backdrop-blur-xl z-[100]"
                   onOpenAutoFocus={(e) => e.preventDefault()}
                 >
                   <div className="flex flex-col space-y-2 mt-8 px-2">

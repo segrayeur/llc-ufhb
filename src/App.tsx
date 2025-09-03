@@ -15,6 +15,7 @@ import Projets from "./pages/Projets";
 import Structures from "./pages/Structures";
 import Partenaires from "./pages/Partenaires";
 import Actualites from "./pages/Actualites";
+import Galerie from "./pages/Galerie";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
@@ -37,9 +38,9 @@ const App = () => (
               <Route path="/mission" element={<Mission />} />
               <Route path="/equipe" element={<Equipe />} />
               <Route path="/historique" element={<Historique />} />
-              <Route path="/galerie" element={<Actualites />} />
-              <Route path="/galerie/photos" element={<Actualites />} />
-              <Route path="/galerie/videos" element={<Actualites />} />
+              <Route path="/galerie" element={<Galerie />} />
+              <Route path="/galerie/photos" element={<Galerie />} />
+              <Route path="/galerie/videos" element={<Galerie />} />
               <Route path="/departements" element={<Departements />} />
               <Route path="/projets" element={<Projets />} />
               <Route path="/structures" element={<Structures />} />

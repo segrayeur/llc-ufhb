@@ -13,7 +13,7 @@ const Galerie = () => {
   const photos = [
     {
       id: 1,
-      src: "/public/lovable-uploads/9db0c164-74a6-4eea-beb5-c5a83c35e359.png",
+      src: "/lovable-uploads/9db0c164-74a6-4eea-beb5-c5a83c35e359.png",
       title: "Logo UFR-LLC",
       description: "Logo officiel de l'UFR des Langues, Littératures et Civilisations",
       category: "Institutionnel"
