@@ -13,6 +13,10 @@ const FloatingBubbles = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleOpenAIClick = () => {
+    setShowChat(!showChat);
+  };
+
   const handleChatbotClick = () => {
     setShowChat(!showChat);
   };
@@ -82,6 +86,17 @@ const FloatingBubbles = () => {
           style={{ bottom: '0px', right: '0px' }}
         >
           <MessageCircle className="h-6 w-6" />
+        </Button>
+      </div>
+
+      {/* OpenAI Bubble */}
+      <div className="fixed bottom-44 right-6 z-50">
+        <Button
+          onClick={handleOpenAIClick}
+          className="floating-element w-14 h-14 bg-gradient-to-br from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-glow pulse-glow"
+          style={{ bottom: '0px', right: '0px' }}
+        >
+          <Bot className="h-6 w-6" />
         </Button>
       </div>
 

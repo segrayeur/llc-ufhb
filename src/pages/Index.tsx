@@ -175,6 +175,62 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Témoignages Audio Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Témoignages Audio</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
+              <CardHeader>
+                <CardTitle className="text-lg">Dr. Marie Kouassi</CardTitle>
+                <CardDescription>Diplômée en Littérature Anglaise</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <audio controls className="w-full mb-4">
+                  <source src="/audio/temoignage1.mp3" type="audio/mpeg" />
+                  Votre navigateur ne supporte pas l'audio.
+                </audio>
+                <p className="text-sm text-muted-foreground">
+                  "Mon parcours à l'UFR-LLC m'a permis d'acquérir une expertise exceptionnelle..."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
+              <CardHeader>
+                <CardTitle className="text-lg">Prof. Jean Bakayoko</CardTitle>
+                <CardDescription>Ancien étudiant en Allemand</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <audio controls className="w-full mb-4">
+                  <source src="/audio/temoignage2.mp3" type="audio/mpeg" />
+                  Votre navigateur ne supporte pas l'audio.
+                </audio>
+                <p className="text-sm text-muted-foreground">
+                  "L'excellence académique de l'UFR-LLC est reconnue internationalement..."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="academic-shadow hover-scale glass-effect border border-primary/20">
+              <CardHeader>
+                <CardTitle className="text-lg">Dr. Aminata Traoré</CardTitle>
+                <CardDescription>Chercheuse en Sciences du Langage</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <audio controls className="w-full mb-4">
+                  <source src="/audio/temoignage3.mp3" type="audio/mpeg" />
+                  Votre navigateur ne supporte pas l'audio.
+                </audio>
+                <p className="text-sm text-muted-foreground">
+                  "Les opportunités de recherche offertes sont extraordinaires..."
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
