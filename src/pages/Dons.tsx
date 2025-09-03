@@ -83,11 +83,11 @@ const Dons = () => {
         throw new Error(data.error || 'Erreur lors de l\'initialisation du paiement');
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erreur:', error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'initialisation du paiement",
+        description: (error?.message || "Une erreur est survenue lors de l'initialisation du paiement"),
         variant: "destructive",
       });
     } finally {

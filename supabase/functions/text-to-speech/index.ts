@@ -58,16 +58,67 @@ serve(async (req) => {
     if (!response.ok) {
       const errorText = await response.text();
       console.error('ElevenLabs API error:', response.status, errorText);
+      
+      // Fallback to OpenAI TTS if available
+      const OPENAI_API_KEY = Deno.env.get('OPENAI_API_KEY');
+      if (OPENAI_API_KEY) {
+        console.log('Falling back to OpenAI TTS...');
+        const openaiResp = await fetch('https://api.openai.com/v1/audio/speech', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${OPENAI_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'tts-1',
+            input: text,
+            voice: 'alloy',
+            response_format: 'mp3',
+          }),
+        });
+
+        if (!openaiResp.ok) {
+          const openaiErr = await openaiResp.text();
+          console.error('OpenAI TTS error:', openaiResp.status, openaiErr);
+          throw new Error(`ElevenLabs API error: ${response.status}`);
+        }
+
+        // Return OpenAI audio
+        const openAiBuffer = await openaiResp.arrayBuffer();
+        // Chunked base64 encoding to avoid call stack issues
+        const openAiBytes = new Uint8Array(openAiBuffer);
+        let openAiBinary = '';
+        const chunkSize = 8192;
+        for (let i = 0; i < openAiBytes.length; i += chunkSize) {
+          const chunk = openAiBytes.subarray(i, Math.min(i + chunkSize, openAiBytes.length));
+          openAiBinary += String.fromCharCode.apply(null, Array.from(chunk));
+        }
+        const openAiBase64 = btoa(openAiBinary);
+
+        return new Response(JSON.stringify({ 
+          audioContent: openAiBase64,
+          success: true,
+          provider: 'openai'
+        }), {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
       throw new Error(`ElevenLabs API error: ${response.status}`);
     }
 
     // Get the audio buffer
     const audioBuffer = await response.arrayBuffer();
     
-    // Convert to base64
-    const base64Audio = btoa(
-      String.fromCharCode(...new Uint8Array(audioBuffer))
-    );
+    // Convert to base64 using chunked encoding to avoid call stack overflow
+    const bytes = new Uint8Array(audioBuffer);
+    let binary = '';
+    const chunkSizeMain = 8192;
+    for (let i = 0; i < bytes.length; i += chunkSizeMain) {
+      const chunk = bytes.subarray(i, Math.min(i + chunkSizeMain, bytes.length));
+      binary += String.fromCharCode.apply(null, Array.from(chunk));
+    }
+    const base64Audio = btoa(binary);
 
     console.log('Audio generated successfully, size:', audioBuffer.byteLength);
 

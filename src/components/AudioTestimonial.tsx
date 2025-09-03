@@ -132,14 +132,20 @@ export function AudioTestimonial({ text, voice = "Sarah", className = "" }: Audi
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Cleanup audio URL on unmount
-  useEffect(() => {
-    return () => {
-      if (audioUrl) {
-        URL.revokeObjectURL(audioUrl);
-      }
-    };
-  }, [audioUrl]);
+// Auto-generate on mount and cleanup on unmount
+useEffect(() => {
+  // Trigger generation automatically once
+  if (!audioUrl && !isLoading) {
+    generateAudio().catch(console.error);
+  }
+  return () => {
+    if (audioUrl) {
+      URL.revokeObjectURL(audioUrl);
+    }
+  };
+  // intentionally ignore deps to avoid re-generating
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [audioUrl, isLoading]);
 
   return (
     <div className={`bg-muted/30 border border-primary/20 rounded-lg p-4 space-y-3 ${className}`}>

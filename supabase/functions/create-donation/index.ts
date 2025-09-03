@@ -63,9 +63,9 @@ serve(async (req) => {
     // Préparer les données pour Paystack
     const paystackData = {
       email: donor_email,
-      amount: amount * 100, // Paystack utilise les kobo (centimes)
+      amount: amount * 100, // Montant en sous-unité (centimes)
       reference: reference,
-      currency: 'NGN',
+      currency: 'XOF', // Utiliser le Franc CFA (UEMOA)
       callback_url: `${req.headers.get('origin')}/don-succes`,
       metadata: {
         donor_name,
