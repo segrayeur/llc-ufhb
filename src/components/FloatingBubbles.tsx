@@ -89,12 +89,12 @@ const FloatingBubbles = () => {
         </Button>
       </div>
 
-      {/* OpenAI Bubble */}
-      <div className="fixed bottom-44 right-6 z-50">
+      {/* OpenAI Bubble - Left Side */}
+      <div className="fixed bottom-8 left-6 z-50">
         <Button
           onClick={handleOpenAIClick}
-          className="floating-element w-14 h-14 bg-gradient-to-br from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-glow pulse-glow"
-          style={{ bottom: '0px', right: '0px' }}
+          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-glow pulse-glow"
+          style={{ bottom: '0px', left: '0px' }}
         >
           <Bot className="h-6 w-6" />
         </Button>
