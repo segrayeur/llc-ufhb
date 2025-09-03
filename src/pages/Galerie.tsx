@@ -13,45 +13,52 @@ const Galerie = () => {
   const photos = [
     {
       id: 1,
-      src: "/gallery/campus1.jpg",
-      title: "Campus Principal",
-      description: "Vue d'ensemble du campus de l'UFR-LLC",
+      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      title: "Bâtiment Principal UFR-LLC",
+      description: "Vue extérieure du bâtiment principal de l'UFR-LLC",
       category: "Campus"
     },
     {
       id: 2,
-      src: "/gallery/amphitheatre.jpg",
-      title: "Amphithéâtre Central",
-      description: "Grand amphithéâtre pour les conférences",
-      category: "Infrastructure"
+      src: "https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop&crop=center",
+      title: "Entrée Scolarité Centrale",
+      description: "Entrée du bâtiment de la Scolarité Centrale - Section SHS 1 et SHS 2",
+      category: "Campus"
     },
     {
       id: 3,
-      src: "/gallery/bibliotheque.jpg",
-      title: "Bibliothèque Universitaire",
-      description: "Espace de recherche et d'étude",
+      src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop&crop=center",
+      title: "Bâtiment Pédagogique",
+      description: "Façade du bâtiment pédagogique de l'UFR-LLC",
       category: "Infrastructure"
     },
     {
       id: 4,
-      src: "/gallery/ceremonie.jpg",
-      title: "Cérémonie de Remise des Diplômes",
-      description: "Promotion 2023-2024",
-      category: "Événements"
+      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=center",
+      title: "Université Félix Houphouët-Boigny",
+      description: "Entrée principale de l'Université Félix Houphouët-Boigny à Abidjan-Cocody",
+      category: "Campus"
     },
     {
       id: 5,
-      src: "/gallery/conference.jpg",
-      title: "Conférence Internationale",
-      description: "Colloque sur les langues africaines",
-      category: "Événements"
+      src: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop&crop=center",
+      title: "Campus Vue d'ensemble",
+      description: "Vue panoramique du campus de l'UFR-LLC",
+      category: "Campus"
     },
     {
       id: 6,
-      src: "/gallery/etudiants.jpg",
-      title: "Vie Étudiante",
-      description: "Moments de convivialité entre étudiants",
+      src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop&crop=center",
+      title: "Cour Intérieure",
+      description: "Espace de détente et de socialisation des étudiants",
       category: "Vie Étudiante"
+    },
+    {
+      id: 7,
+      src: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=400&h=300&fit=crop&crop=center",
+      title: "Bâtiment Académique",
+      description: "Bâtiment abritant les salles de cours et bureaux administratifs",
+      category: "Infrastructure"
     }
   ];
 

@@ -1,11 +1,21 @@
 import { useState } from "react";
-import { Phone, MessageCircle, Bot, X, Mail } from "lucide-react";
+import { Phone, MessageCircle, Bot, X, Mail, Heart, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 
 const FloatingBubbles = () => {
   const [showContact, setShowContact] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [messages, setMessages] = useState([
+    {
+      type: 'bot',
+      content: 'Bonjour ! Je suis l\'assistant virtuel de l\'UFR-LLC. Comment puis-je vous aider aujourd\'hui ?'
+    }
+  ]);
+  const [inputMessage, setInputMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleWhatsAppClick = () => {
     const message = "BONJOUR ,BIENVENUE A L'UFR - LLC, COMMENT POUVONS-NOUS VOUS AIDER?";
@@ -13,12 +23,51 @@ const FloatingBubbles = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleOpenAIClick = () => {
-    setShowChat(!showChat);
+  const handleContactClick = () => {
+    window.open('tel:+2250141037291', '_blank');
   };
 
   const handleChatbotClick = () => {
     setShowChat(!showChat);
+  };
+
+  const handleSendMessage = async () => {
+    if (!inputMessage.trim()) return;
+
+    const userMessage = inputMessage.trim();
+    setInputMessage('');
+    setIsLoading(true);
+
+    // Add user message to chat
+    setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('ufr-chat', {
+        body: { message: userMessage }
+      });
+
+      if (error) throw error;
+
+      // Add bot response to chat
+      setMessages(prev => [...prev, { 
+        type: 'bot', 
+        content: data.response || 'Désolé, je n\'ai pas pu traiter votre demande.'
+      }]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setMessages(prev => [...prev, { 
+        type: 'bot', 
+        content: 'Désolé, une erreur est survenue. Contactez-nous directement au +225 050 685 4764.'
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
   };
 
   return (
@@ -27,25 +76,23 @@ const FloatingBubbles = () => {
       <div className="fixed bottom-20 left-6 z-50">
         <Button
           onClick={handleWhatsAppClick}
-          className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-glow"
-          style={{ bottom: '0px', left: '0px' }}
+          className="floating-element w-14 h-14 bg-green-600 hover:bg-green-700 text-white shadow-lg"
         >
           <MessageCircle className="h-6 w-6" />
         </Button>
       </div>
 
-      {/* OpenAI Chat AI Bubble - Left Side */}
+      {/* UFR Chat AI Bubble - Left Side */}
       <div className="fixed bottom-8 left-6 z-50">
         <Button
-          onClick={handleOpenAIClick}
-          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-glow pulse-glow"
-          style={{ bottom: '0px', left: '0px' }}
+          onClick={handleChatbotClick}
+          className="floating-element w-14 h-14 bg-gradient-to-br from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-white shadow-lg animate-pulse"
         >
           <Bot className="h-6 w-6" />
         </Button>
       </div>
 
-      {/* Contact Bubble - Right Side */}
+      {/* Contact Heart Bubble - Right Side */}
       <div className="fixed bottom-20 right-6 z-50">
         <div className="relative">
           {showContact && (
@@ -67,23 +114,28 @@ const FloatingBubbles = () => {
                     <Phone className="h-4 w-4 text-primary" />
                     <div>
                       <p className="text-sm font-medium">Téléphones</p>
-                      <p className="text-xs text-muted-foreground">+225 0141037291</p>
-                      <p className="text-xs text-muted-foreground">+225 0141035350</p>
+                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary" 
+                         onClick={() => window.open('tel:+2250141037291')}>+225 0141037291</p>
+                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                         onClick={() => window.open('tel:+2250141035350')}>+225 0141035350</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MessageCircle className="h-4 w-4 text-green-600" />
                     <div>
                       <p className="text-sm font-medium">WhatsApp</p>
-                      <p className="text-xs text-muted-foreground">+225 0506854764</p>
+                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                         onClick={handleWhatsAppClick}>+225 0506854764</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="h-4 w-4 text-blue-600" />
                     <div>
                       <p className="text-sm font-medium">Emails</p>
-                      <p className="text-xs text-muted-foreground">ufrllc@hotmail.com</p>
-                      <p className="text-xs text-muted-foreground">llc.ufr@gmail.com</p>
+                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                         onClick={() => window.open('mailto:ufrllc@hotmail.com')}>ufrllc@hotmail.com</p>
+                      <p className="text-xs text-muted-foreground cursor-pointer hover:text-primary"
+                         onClick={() => window.open('mailto:llc.ufr@gmail.com')}>llc.ufr@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -92,15 +144,14 @@ const FloatingBubbles = () => {
           )}
           <Button
             onClick={() => setShowContact(!showContact)}
-            className="floating-element w-14 h-14 bg-primary hover:bg-primary/90 text-white shadow-glow"
-            style={{ bottom: '0px', right: '0px' }}
+            className="floating-element w-14 h-14 bg-red-500 hover:bg-red-600 text-white shadow-lg"
           >
-            <Phone className="h-6 w-6" />
+            <Heart className="h-6 w-6" />
           </Button>
         </div>
       </div>
 
-      {/* Chatbot Bubble */}
+      {/* UFR Chatbot Bubble */}
       <div className="fixed bottom-8 right-6 z-50">
         <div className="relative">
           {showChat && (
@@ -122,28 +173,38 @@ const FloatingBubbles = () => {
                 </div>
                 <div className="flex-1 bg-muted/20 rounded-lg p-4 mb-4 overflow-y-auto">
                   <div className="space-y-3">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <p className="text-sm">Bonjour ! Je suis l'assistant virtuel de l'UFR-LLC. Comment puis-je vous aider aujourd'hui ?</p>
-                    </div>
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <p className="text-sm">Vous pouvez me poser des questions sur :</p>
-                      <ul className="text-xs mt-2 space-y-1 text-muted-foreground">
-                        <li>• Les formations disponibles</li>
-                        <li>• Les procédures d'admission</li>
-                        <li>• Les départements</li>
-                        <li>• Les contacts</li>
-                      </ul>
-                    </div>
+                    {messages.map((message, index) => (
+                      <div key={index} className={`p-3 rounded-lg ${
+                        message.type === 'bot' 
+                          ? 'bg-primary/10 mr-4' 
+                          : 'bg-accent/10 ml-4'
+                      }`}>
+                        <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                      </div>
+                    ))}
+                    {isLoading && (
+                      <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                        <p className="text-sm">Assistant en train de répondre...</p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <input 
-                    type="text" 
+                  <Input 
+                    value={inputMessage}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
                     placeholder="Tapez votre message..."
-                    className="flex-1 px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="flex-1"
+                    disabled={isLoading}
                   />
-                  <Button size="sm" className="px-3">
-                    Envoyer
+                  <Button 
+                    size="sm" 
+                    onClick={handleSendMessage}
+                    disabled={isLoading || !inputMessage.trim()}
+                    className="px-3"
+                  >
+                    <Send className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
@@ -151,8 +212,7 @@ const FloatingBubbles = () => {
           )}
           <Button
             onClick={handleChatbotClick}
-            className="floating-element w-14 h-14 bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow pulse-glow"
-            style={{ bottom: '0px', right: '0px' }}
+            className="floating-element w-14 h-14 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
           >
             <Bot className="h-6 w-6" />
           </Button>
