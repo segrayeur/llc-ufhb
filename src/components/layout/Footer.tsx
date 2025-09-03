@@ -2,10 +2,8 @@ import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import ufrLogo from "@/assets/ufr-logo.png";
 import universityLogo from "@/assets/university-logo.png";
-
 export default function Footer() {
-  return (
-    <footer className="bg-primary text-primary-foreground mt-20">
+  return <footer className="bg-primary text-primary-foreground mt-20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -59,7 +57,8 @@ export default function Footer() {
                 <Phone className="h-4 w-4 text-accent" />
                 <div className="text-primary-foreground/80">
                   <div>+225 0141037291</div>
-                  <div>+225 0141035350</div>
+                  <div>+225 0141035350
++225 0143977166</div>
                   <div>WhatsApp: +225 0506854764</div>
                 </div>
               </div>
@@ -87,12 +86,7 @@ export default function Footer() {
               <Link to="/contact" className="hover:text-accent transition-academic">
                 Contact
               </Link>
-              <a 
-                href="https://ufhb.edu.ci" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-accent transition-academic flex items-center space-x-1"
-              >
+              <a href="https://ufhb.edu.ci" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-academic flex items-center space-x-1">
                 <Globe className="h-4 w-4" />
                 <span>UFHB</span>
               </a>
@@ -100,6 +94,5 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
